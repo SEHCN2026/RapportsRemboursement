@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Formulaire de demande de remboursement</title>
+
+    <link rel="icon" type="image/png" href="../logo.jpg">
+
+    <link rel="stylesheet" href="FMstyle.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    >
+</head>
+
+<body>
+
+    <img
+	src="https://sehcn.com/wp-content/uploads/sites/61/2026/11/logo.png"
+	id="logoPDF"
+	alt=""
+	crossorigin="anonymous"
+	style="display: none;"
+    >
+
+    <main class="formulaire">
+
+	<div class="entete-formulaire">
+	    <img
+	        src="../logo.png"
+	        alt="Logo"
+	        class="logo-formulaire"
+	    >
+	
+	<div class="texte-entete">
+            <h1>Formulaire de demande de remboursement</h1>
+
+	    <p class="sous-titre">
+	        Fonds d'aide aux élèves dans le besoin, achats par les délégués, autres
+	    </p>
+	</div>
+    </div>
+
+
+    <!--  BARRE DE PROGRESSION -->
+
+    <div
+	class="progression"
+	id="progression"
+	aria-label="Progression du formulaire"
+    >
+
+	<div 
+	    class="progression-etape active" 
+	    data-etape="1"
+	>
+	    <span class="numero-etape">1</span>
+
+	    <span class="libelle-etape">
+		Identification
+	    </span>
+
+	</div>
+
+	<div 
+	    class="ligne-progression" 
+	    data-ligne="1"
+	></div>
+
+
+	<div 
+	    class="progression-etape active" 
+	    data-etape="2"
+	>
+	    <span class="numero-etape">2</span>
+
+	    <span class="libelle-etape">
+		Détails des achats
+	    </span>
+
+	</div>
+
+	<div 
+	    class="ligne-progression" 
+	    data-ligne="2"
+	></div>
+
+
+	<div 
+	    class="progression-etape active" 
+	    data-etape="3"
+	>
+	    <span class="numero-etape">3</span>
+
+	    <span class="libelle-etape">
+		Justifications
+	    </span>
+
+	</div>
+
+	<div 
+	    class="ligne-progression" 
+	    data-ligne="3"
+	></div>
+
+
+	<div 
+	    class="progression-etape active" 
+	    data-etape="4"
+	>
+	    <span class="numero-etape">4</span>
+
+	    <span class="libelle-etape">
+		Vérification et envoi</span>
+	</div>
+
+    </div>
+
+
+    <!-- =========================================
+         CONTENU DU FORMULAIRE
+    ========================================== -->
+
+    <div id="contenu-formulaire">
+
+        <!-- =========================================
+             ÉTAPE 1 - IDENTIFICATION
+        ========================================== -->
+
+        <section 
+	    class="etape" 
+	    data-etape="1" 
+	    id="etape1"
+	>
+
+            <h2>Identification</h2>
+
+	    <div class="note-obligatoire">
+    		<span class="obligatoire">* Champ obligatoire</span>
+	    </div>
+
+	    <div class="section-formulaire">
+
+		<h3>Coordonnées</h3>
+
+            	<div>
+                    <label for="nom">
+		    	Nom <span class="obligatoire">*</span>
+		    </label>
+                
+		    <input
+                    	type="text"
+                    	id="nom"
+                    	name="nom"
+                    	required 
+			placeholder="Inscrire votre nom complet"
+                    >
+            	</div>
+
+	    	<div>
+
+		    <label for="courriel">
+		    	Courriel <span class="obligatoire">*</span>
+		    </label>
+		
+		    <input
+		    	type="email"
+		    	id="courriel"
+		    	name="courriel"
+		    	required
+		    	placeholder="Inscrire votre adresse courriel du CSS"
+		    >
+	    	</div>
+
+            	<div>
+                    <label for="adresse">
+		    	Adresse <span class="obligatoire">*</span>
+		    </label>
+                
+		    <textarea
+                    	id="adresse"
+                    	name="adresse"
+		    	rows="2"
+                    	required
+		    	placeholder="Inscrire votre adresse complète"
+                    ></textarea>
+            	</div>
+
+	    </div>
+
+        </section>
+
+        <!-- =========================================
+             ÉTAPE 2 - DÉTAILS DES ACHATS
+        ========================================== -->
+
+	<section 
+	    class="etape"
+	    data-etape="2"
+	    id="etape2"
+	    style="display:none;"
+	>
+
+	    <div class="bloc-etape-achats">
+
+	        <h2>Détails des achats
+
+		    <span class="info-achats">
+			ⓘ
+
+			<span class="info-bulle-achats">
+			    <strong>Directives</strong><br><br>
+
+			    Ajoutez chaque achat séparément. Vous devrez joindre au moins une pièce justificative pour chaque achat.
+			</span>
+		    </span>
+		
+		</h2>
+
+	    <div class="note-obligatoire">
+    		<span class="obligatoire">* Champ obligatoire</span>
+	    </div>
+
+	        <div class="section-formulaire achats">
+
+	    	    <div id="listeAchats"></div>
+
+		    <button
+	            	type="button"
+	    	    	id="boutonAjouterAchats"
+	    	    	class="bouton-ajouter"
+		    >
+	    
+	    	    	+ Ajouter un achat
+		    </button>
+
+		    <div class="total-achats">
+	    	    	<strong>Total des achats :</strong>
+	    	    	<span id="totalAchats">0,00 $</span>
+    		    </div>
+
+	    	</div>
+
+	    </div>
+
+	    <div class="bloc-etape-pieces">
+
+    	    	<h2>Pièces justificatives</h2>     
+
+		    <input
+    	    	    	type="file"
+    	    	    	id="piecesJustificatives"
+	    	    	name="piecesJustificatives"
+	    	    	multiple
+			hidden
+		    >
+
+    		    <div 
+		    	class="entete-pieces-justificatives"
+        	    	id="entetePiecesJustificatives"
+        	    	style="display: none;"
+    		    >
+        	    	<span>Fichier</span>
+        	    	<span>Achat</span>
+        	    	<span></span>
+    		    </div>
+
+    		    <div id="listePiecesJustificatives"></div>
+
+		    <p
+		    	class="resume-fichiers"
+		    	id="resumeFichiers"
+		    ></p>
+
+	        </div>
+
+	    </section>
+
+
+        <!-- =========================================
+             ÉTAPE 3 - JUSTIFICATIONS ADDITIONNELLES
+        ========================================== -->
+
+	<section 
+	    class="etape3"
+	    data-etape="3"
+	    id="etape3"
+	    style="display: none;"
+	>
+
+    	    <h2>Justifications additionnelles
+
+		    <span class="info-achats">
+			ⓘ
+
+			<span class="info-bulle-achats">
+			    <strong>Directives</strong><br><br>
+			    Ajoutez toute information ou justification complémentaire pertinente à votre demande.
+			</span>
+		    </span>
+	    </h2>
+
+	    <div class="section-formulaire justification-additionnelle">
+
+    		<textarea
+		    id="justificationAdditionnelle"
+		    name="justificationAdditionnelle"
+		    rows="5"
+		    placeholder="Inscrire toute information ou justification additionnelle pertinente à la demande de remboursement"
+    		></textarea>
+
+	    </div>
+
+	</section>
+
+
+        <!-- =========================================
+             ÉTAPE 4 - VÉRIFICATION ET ENVOI
+        ========================================== -->
+
+	<section 
+	    class="etape4"
+	    data-etape="4"
+	    id="etape4"
+	    style="display: none;"
+	>
+
+	    <h2>Vérification de la demande</h2>
+
+	    <div class="verification-rapport">
+
+		<h3>Identification</h3>
+
+		<div class="verification-ligne">
+		    <strong>Nom :</strong>
+		    <span id="verificationNom"></span>
+		</div>
+
+		<div class="verification-ligne">
+		    <strong>Courriel :</strong>
+		    <span id="verificationCourriel"></span>
+		</div>
+
+		<div class="verification-ligne">
+		    <strong>Adresse :</strong>
+		    <span id="verificationAdresse"></span>
+		</div>
+
+	    </div>
+
+
+	    <div class="verification-rapport">
+
+		<h3>Résumé des achats</h3>
+
+		<div id="verificationListeAchats"></div>
+
+		<div class="verification-ligne">
+		    <strong>Total des achats :</strong>
+		    <span id="verificationTotalAchats">0,00 $</span>
+		</div>
+
+	    </div>
+
+
+	    <div class="verification-rapport">
+
+		<h3>Justifications additionnelles</h3>
+
+		<div class="verification-ligne">
+		    <span id="verificationJustificationAdditionnelle"></span>
+		</div>
+
+	    </div>
+
+
+	    <div class="verification-rapport">
+
+		<h3>Pièces justificatives</h3>
+
+		<div class="verification-ligne">
+		    <strong>Nombre de fichiers :</strong>
+		    <span id="verificationNombrePieces"></span>
+		</div>
+
+	    </div>
+
+	    <div class="avis-documents-originaux">
+
+		<h3>Important — Documents originaux</h3>
+
+		<p>
+                    Pour toute dépense accompagnée d’une facture
+                    ou d’un coupon de caisse, le document original
+                    doit également être transmis. Il peut être remis
+                    en personne, envoyé par courrier interne ou
+                    par la poste. Le fichier joint au présent
+                    formulaire ne remplace pas le document original.
+		</p>
+
+		<label class="confirmation-documents-originaux">
+
+		    <input
+			type="checkbox"
+			id="confirmationDocumentsOriginaux"
+		    >
+
+                        Je confirme avoir pris connaissance de cette
+                        consigne concernant la transmission des
+                        documents originaux.
+
+		    </label>
+
+		</div>
+
+		
+		<!-- ACTIONS FINALES -->
+
+
+		<div class="boutons-actions">
+
+    		    <span class="bouton-action-info">
+			<button
+            		    type="button"
+            		    id="boutonGenererPDF"
+	    		    class="bouton-pdf"
+        		>
+            		    💾 Enregistrer en PDF
+        		</button>
+    		    </span>
+
+    		    <span class="bouton-action-info">
+        		<button
+	    		    type="button"
+            		    id="boutonEnvoyerCourriel"
+	    		    class="bouton-courriel"
+        		>
+	    		    ✉ Envoyer par courriel
+        		</button>
+    		    </span>
+
+    		    <span class="bouton-action-info">
+        		<button
+	    		    type="button"
+	    		    id="boutonImprimer"
+	    		    class="bouton-imprimer"
+        		>
+	    		    🖨 Imprimer
+        		</button>
+    		    </span>
+
+		</div>
+
+	    </section>
+
+            <!-- =========================================
+                 NAVIGATION ENTRE LES ÉTAPES
+            ========================================== -->
+
+	    <div class="bloc-navigation">
+
+		<div
+		    class="navigation-etapes"
+		    id="navigationEtapes"
+		>
+
+		    <button
+			type="button"
+			id="boutonRetour"
+		    >
+			← Précédent
+		    </button>
+
+		    <button
+			type="button"
+			id="boutonSuivant"
+		    >
+			Suivant →
+		    </button>
+
+		</div>
+
+		<div class="zone-accueil">
+
+		    <button
+			type="button"
+			id="boutonAccueil"
+		    >
+			Retour à l'accueil général
+		    </button>
+
+		</div>
+
+		<div class="zone-reinitialisation">
+
+    		    <button
+			type="button"
+			id="boutonReinitialiser"
+    		    >
+			Réinitialiser le formulaire
+    		    </button>
+
+		</div>
+
+	    </div>
+
+	</div>
+
+    </main>
+
+
+    <!-- =========================================
+         MODALES
+    ========================================== -->
+
+    <!-- MODALE D'ERREUR -->
+
+    <div 
+	id="fenetreErreur" 
+	class="modale-overlay"
+    >
+
+	<div class="modale">
+
+	    <div class="modale-icone">
+		!
+	    </div>
+
+	    <div class="modale-contenu">
+		<h2>Erreur !</h2>
+		<p id="messageErreur"></p>
+	    </div>
+
+	    <div class="modale-actions">
+		<button
+		    type="button"
+		    id="boutonFermerErreur"
+		    class="bouton-modale bouton-modale-secondaire"
+		>
+		    OK
+		</button>
+
+	    </div>
+
+	</div>
+
+    </div>
+
+
+    <!-- MODALE D'AVERTISSEMENT -->
+
+    <div 
+	id="fenetreAvertissement" 
+	class="modale-overlay"
+    >
+
+	<div class="modale">
+
+	    <div class="modale-icone modale-icone-avertissement">
+		!
+	    </div>
+
+	    <div class="modale-contenu">
+		<h2>Avertissement !</h2>
+		<p id="messageAvertissement"></p>
+	    </div>
+
+	    <div class="modale-actions">
+		<button
+		    type="button"
+		    id="boutonRetourAvertissement"
+		    class="bouton-modale bouton-modale-secondaire"
+		>
+		    Corriger
+		</button>
+
+		<button
+		    type="button"
+		    id="boutonPoursuivreAvertissement"
+		    class="bouton-modale bouton-modale-avertissement"
+		>
+		    Poursuivre
+		</button>
+
+	    </div>
+
+	</div>
+
+    </div>
+
+
+    <!-- MODALE DE RÉINITIALISATION -->
+
+    <div 
+	id="fenetreReinitialisation" 
+	class="modale-overlay"
+    >
+
+	<div class="modale">
+
+	    <div class="modale-icone modale-icone-avertissement">
+		!
+	    </div>
+
+	    <div class="modale-contenu">
+		<h2>Réinitialiser le formulaire ?</h2>
+		<p>
+		    Toutes les informations saisies dans le formulaire seront supprimées.
+		</p>
+	    </div>
+
+	    <div class="modale-actions">
+		<button
+		    type="button"
+		    id="boutonAnnulerReinitialisation"
+		    class="bouton-modale bouton-modale-secondaire"
+		>
+		    Annuler
+		</button>
+
+		<button
+		    type="button"
+		    id="boutonConfirmerReinitialisation"
+		    class="bouton-modale bouton-modale-avertissement"
+		>
+		    Réinitialiser
+		</button>
+
+	    </div>
+
+	</div>
+
+    </div>
+
+
+    <!-- MODALE DE CONFIRMATION D'ENVOI -->
+
+    <div 
+	id="fenetreConfirmation" 
+	class="modale-overlay"
+    >
+
+	<div class="modale">
+
+	    <div class="modale-contenu">
+		<h2>Rapport de dépenses</h2>
+		<p>
+		    Voulez-vous envoyer cette demande par courriel ?
+		</p>
+	    </div>
+
+	    <div class="modale-actions">
+		<button
+		    type="button"
+		    id="boutonAnnulerConfirmation"
+		    class="bouton-modale bouton-modale-secondaire"
+		>
+		    Annuler
+		</button>
+
+		<button
+		    type="button"
+		    id="boutonConfirmerEnvoi"
+		    class="bouton-modale bouton-modale-principal"
+		>
+		    Envoyer
+		</button>
+
+	    </div>
+
+	</div>
+
+    </div>
+
+
+    <!-- MODALE DE SUCCÈS -->
+
+    <div 
+	id="fenetreSucces" 
+	class="modale-overlay"
+    >
+
+	<div class="modale">
+
+	    <div class="modale-icone modale-icone-succes">
+		✓
+	    </div>
+
+	    <div class="modale-contenu">
+		<h2>Succès !</h2>
+		<p>
+		    La demande a été envoyée par courriel avec succès. Une copie a également été expédiée à l'adresse courriel fournie.
+		</p>
+	    </div>
+
+	    <div class="modale-actions">
+		<button
+		    type="button"
+		    id="boutonFermerSucces"
+		    class="bouton-modale bouton-modale-principal"
+		>
+		    OK
+		</button>
+
+	    </div>
+
+	</div>
+
+    </div>
+
+
+    <!-- =========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="js/validation.js"></script>
+    <script src="js/pieces.js"></script>
+    <script src="js/achats.js"></script>
+    <script src="js/pdf.js"></script>
+    <script src="js/modale.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="../courriel.js"></script>
+
+</body>
+
+</html>

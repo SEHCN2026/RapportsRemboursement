@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rapport de déplacements</title>
+
+    <link rel="icon" type="image/png" href="../logo.jpg">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    >
+</head>
+
+<body>
+
+    <img
+	src="https://sehcn.com/wp-content/uploads/sites/61/2026/11/logo.png"
+	id="logoPDF"
+	alt=""
+	crossorigin="anonymous"
+	style="display: none;"
+    >
+
+    <main class="formulaire">
+
+        <!-- =========================================
+             EN-TÊTE
+        ========================================== -->
+
+	<div class="entete-formulaire">
+	    <img
+		src="../logo.png"
+		alt="Logo"
+		class="logo-formulaire"
+	    >
+
+	    <div class="texte-entete">
+	        <h1>Formulaire de remboursement</h1>
+
+	        <p class="sous-titre">
+		    Formulaire à remplir pour demander un remboursement de dépenses comportant au moins une nuitée, du transport et des repas.
+	        </p>
+	    </div>
+        </div>
+
+	<div class="avis-autosauvegarde" role="status">
+	    <span class="icone-autosauvegarde" aria-hidden="true">✓</span>
+
+	    <div class="texte-autosauvegarde">
+		<strong>Votre progression est enregistrée automatiquement.</strong>
+
+		<p>
+            	    Vous pouvez fermer le navigateur et reprendre votre formulaire
+            	    plus tard sur le même ordinateur, dans le même navigateur.
+            	    Les pièces justificatives ne sont pas sauvegardées :
+            	    vous devrez les joindre de nouveau à la reprise.
+            	    Votre brouillon peut être perdu si les données du navigateur
+            	    sont effacées.
+		</p>
+
+	 	<span id="statutAutosauvegarde" aria-live="polite">
+		    En attente de modifications
+		</span>
+	    </div>
+	</div>
+
+
+        <!-- =========================================
+             BARRE DE PROGRESSION
+        ========================================== -->
+
+	<div
+	    class="progression"
+	    id="progression"
+	    aria-label="Progression du formulaire"
+	>
+
+	    <div 
+		class="progression-etape active"
+		data-etape="1"
+	    >
+
+		<span class="numero-etape">1</span>
+		<span class="libelle-etape">Identification</span>
+	    </div>
+
+	    <div
+		class="ligne-progression"
+		data-ligne="1"
+	    ></div>
+
+	    <div
+		class="progression-etape"
+		data-etape="2"
+	    >
+		<span class="numero-etape">2</span>
+		<span class="libelle-etape">Détails du séjour</span>
+	    </div>
+
+	    <div
+		class="ligne-progression"
+		data-ligne="2"
+	    ></div>
+
+	    <div
+		class="progression-etape"
+		data-etape="3"
+	    >
+		<span class="numero-etape">3</span>
+		<span class="libelle-etape">Résumé des dépenses</span>
+	    </div>
+
+	    <div
+		class="ligne-progression"
+		data-ligne="3"
+	    ></div>
+
+	    <div
+		class="progression-etape"
+		data-etape="4"
+	    >
+		<span class="numero-etape">4</span>
+		<span class="libelle-etape">Pièces justificatives</span>
+	    </div>
+
+	    <div
+		class="ligne-progression"
+		data-ligne="4"
+	    ></div>
+
+	    <div
+		class="progression-etape"
+		data-etape="5"
+	    >
+		<span class="numero-etape">5</span>
+		<span class="libelle-etape">Vérification et envoi</span>
+	    </div>
+	
+	</div>
+
+
+        <!-- =========================================
+             CONTENU DU FORMULAIRE
+        ========================================== -->
+
+	<div id="contenuFormulaire">
+
+            <!-- =========================================
+                 ÉTAPE 1 : IDENTIFICATION
+            ========================================== -->
+
+	    <section
+		class="etape"
+		data-etape="1"
+		id="etape1"
+	    >
+
+                <h2>Identification et activité</h2>
+
+		<div class="note-obligatoire">
+    		    <span class="obligatoire">
+			* Champ obligatoire
+		    </span>
+		</div>
+
+                
+
+		<!-- IDENTIFICATION -->
+            	
+		<div class="section-formulaire">
+
+		    <h3>Coordonnées</h3>
+
+		    <div>
+                    	<label for="nom">
+			    Nom <span class="obligatoire">*</span>
+		    	</label>
+                
+		    	<input
+                            type="text"
+                            id="nom"
+                            name="nom"
+                            required placeholder="Inscrire votre nom complet"
+                    	>
+                    </div>
+
+	            <div>
+
+		    	<label for="courriel">
+			    Courriel <span class="obligatoire">*</span>
+		    	</label>
+		
+		    	<input
+		            type="email"
+		            id="courriel"
+		            name="courriel"
+		            required
+		            placeholder="Inscrire votre adresse courriel du CSS"
+		        >
+	    	    </div>
+
+            	    <div>
+                    	<label for="adresse">
+			    Adresse <span class="obligatoire">*</span>
+		    	</label>
+                    
+		    	<textarea
+                            id="adresse"
+                            name="adresse"
+		            rows="2"
+                            required
+		            placeholder="Inscrire votre adresse complète"
+                    	></textarea>
+            	    </div>
+		</div>
+
+                
+
+		<!-- INFORMATIONS SUR LE DÉPLACEMENT -->
+
+		<div class="section-formulaire">
+
+		    <h3>Informations sur l'activité</h3>
+
+	   	    <div class="date-heure-ligne">
+    		    	<label>
+			    Date et heure de départ
+			    <span class="obligatoire">*</span>
+		    	</label>
+
+    	   	        <div class="date-heure-champs">
+        		    <input
+            		    	type="text"
+            		    	id="dateDepart"
+            		    	name="dateDepart"
+            		    	placeholder="Date"
+            		    	readonly
+            		    	required
+        		    >
+
+        		    <input
+            		    	type="time"
+            		    	id="heureDepart"
+            		    	name="heureDepart"
+            		    	required
+        		    >
+    		    	</div>
+		    </div>
+
+		    <div class="date-heure-ligne">
+    		    	<label>
+			    Date et heure de retour
+			    <span class="obligatoire">*</span>
+		    	</label>
+
+    		        <div class="date-heure-champs">
+        		    <input
+            		    	type="text"
+            		    	id="dateRetour"
+            		    	name="dateRetour"
+            		    	placeholder="Date"
+            		    	readonly
+            		    	required
+        		    >
+
+        		    <input
+            		    	type="time"
+            		    	id="heureRetour"
+            		    	name="heureRetour"
+            		    	required
+        		    >
+    		    	</div>
+		    </div>
+
+            	    <div>
+                    	<label for="motifActivite">
+			    Nature de l'activité
+			    <span class="obligatoire">*</span>
+		    	</label>
+                
+		        <textarea
+                            id="motifActivite"
+                    	    name="motifActivite"
+                    	    rows="4"
+                    	    required placeholder="Inscrire la nature de l'activité"
+                        ></textarea>
+                    </div>
+		</div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 ÉTAPE 2 : DÉPLACEMENTS
+            ========================================== -->
+
+	    <section
+		class="etape"
+		data-etape="2"
+		id="etape2"
+		style="display: none;"
+	    >
+
+		<div class="controles-accordeon">
+
+		    <button
+			type="button"
+			id="boutonToutDeplier"
+		    >
+			Tout déplier
+		    </button>
+
+		    <button
+			type="button"
+			id="boutonToutPlier"
+		    >
+			Tout replier
+		    </button>
+		</div>
+
+        	<div id="conteneurJournees"></div>
+	    </section>
+
+
+
+            <!-- =========================================
+                 ÉTAPE 3 : DÉPENSES
+            ========================================== -->
+
+	    <section
+		class="etape"
+		data-etape="3"
+		id="etape3"
+		style="display: none;"
+	    >
+
+		<div class="total-rapport">
+
+    		    <h2>Total du rapport</h2>
+
+                    
+		    <!-- RÉSUMÉ GLOBAL DES DÉPENSES -->
+
+		    <div class="resume-depenses">
+
+			<h3>Résumé des dépenses</h3>
+
+			<div class="ligne-depense">
+			    <span>Kilométrage</span>
+			    <span id="totalRapportKilometrage">
+				0,00 $
+			    </span>
+			</div>
+
+
+			<div class="ligne-depense">
+			    <span>Location</span>
+			    <span id="totalRapportLocation">
+				0,00 $
+			    </span>
+			</div>
+
+
+			<div class="ligne-depense">
+			    <span>Transports publics</span>
+			    <span id="totalRapportTransportsPublics">
+				0,00 $
+			    </span>
+			</div>
+
+
+			<div class="ligne-depense">
+			    <span>Repas</span>
+			    <span id="totalRapportRepas">
+				0,00 $
+			    </span>
+			</div>
+
+
+			<div class="ligne-depense">
+			    <span>Hébergement</span>
+			    <span id="totalRapportHebergement">
+				0,00 $
+			    </span>
+			</div>
+
+
+			<div class="ligne-depense">
+			    <span>Autres dépenses</span>
+			    <span id="totalRapportAutresDepenses">
+				0,00 $
+			    </span>
+			</div>
+
+		    </div>
+
+
+		    <!-- NOMBRE DE JOURNÉES -->
+
+		    <div class="resume-nombre-journees">
+
+			<strong>Nombre de journées :</strong>
+
+			<span id="nombreJourneesRapport">
+			    0
+			</span>
+
+		    </div>
+
+
+
+                    <!-- RÉSUMÉ DES JOURNÉES -->
+
+		    <div class="resume-journees-rapport">
+
+			<h3>Résumé par journée</h3>
+
+			<div id="conteneurResumeJournees"></div>
+
+		    </div>
+
+
+
+                    <!-- TOTAL DU RAPPORT -->
+
+		    <div class="total-rapport-final">
+
+			<span>Total du rapport</span>
+
+			<strong id="totalRapportGeneral">
+			    0,00 $
+			</strong>
+
+		    </div>
+
+		</div>
+
+	    </section>
+
+
+            <!-- =========================================
+                 ÉTAPE 4 : PIÈCES JUSTIFICATIVES
+            ========================================== -->
+
+	    <section
+		class="etape"
+    		data-etape="4"
+    		id="etape4"
+    		style="display: none;"
+	    >
+
+    		<h2>Pièces justificatives</h2>
+
+    		<div class="pieces-justificatives">
+
+        	    <label
+            		for="piecesJustificatives"
+            		class="zone-televersement"
+        	    >
+
+            		<div class="icone-televersement">
+                	    📎
+            		</div>
+
+            		<div class="texte-televersement">
+                	    <strong>
+                    		Ajouter des fichiers
+                	    </strong>
+
+                	    <span>
+                    		ou glissez-déposez vos fichiers ici
+                	    </span>
+            		</div>
+
+            		<span class="bouton-fichiers">
+                	    Choisir des fichiers
+            		</span>
+
+        	    </label>
+
+        	    <input
+            		type="file"
+            		id="piecesJustificatives"
+            		name="piecesJustificatives"
+            		multiple
+        	    >
+
+		    <p class="details-televersement">
+			Maximum : 10 fichiers · Fichiers acceptés : PDF, Word, Excel ou image · Taille maximale : 10 Mo
+		    </p>
+
+        	    <div
+            		class="entete-pieces-justificatives"
+            		id="entetePiecesJustificatives"
+            		style="display: none;"
+        	    >
+            		<span>Documents ajoutés</span>
+            		<span></span>
+        	    </div>
+	
+        	    <div id="listePiecesJustificatives"></div>
+
+    	  	</div>
+
+	    </section>
+
+
+            <!-- =========================================
+                 ÉTAPE 5 : VÉRIFICATION ET ENVOI
+            ========================================== -->
+
+	    <section
+		class="etape"
+		data-etape="5"
+		id="etape5"
+		style="display: none;"
+	    >
+
+		<h2>Vérification du rapport</h2>
+
+		<div class="verification-rapport">
+
+		    <h3>Identification et activité</h3>
+
+		    <div class="verification-ligne">
+			<strong>Nom :</strong>
+			<span id="verificationNom"></span>
+		    </div>
+
+		    <div class="verification-ligne">
+			<strong>Courriel :</strong>
+			<span id="verificationCourriel"></span>
+		    </div>
+
+		    <div class="verification-ligne">
+			<strong>Adresse :</strong>
+			<span id="verificationAdresse"></span>
+		    </div>
+
+		    <div class="verification-ligne">
+			<strong>Motif de l'activité :</strong>
+			<span id="verificationMotifActivite"></span>
+		    </div>
+
+		    <div class="verification-ligne">
+			<strong>Départ :</strong>
+			<span id="verificationDepart"></span>
+		    </div>
+
+		    <div class="verification-ligne">
+			<strong>Retour :</strong>
+			<span id="verificationRetour"></span>
+		    </div>
+
+		    <div class="verification-ligne">
+			<strong>Journées :</strong>
+			<span id="verificationNombreJournees"></span>
+		    </div>
+
+		    <div class="verification-ligne">
+			<strong>Pièces justificatives :</strong>
+			<span id="verificationNombrePieces"></span>
+		    </div>
+		</div>
+
+		<div class="verification-rapport">
+
+		    <h3>Total du rapport</h3>
+
+		    <div class="verification-ligne">
+			<strong>Total général :</strong>
+			<span id="verificationTotalGeneral">0,00 $</span>
+		    </div>
+		</div>
+
+		<div class="avis-documents-originaux">
+
+		    <h3>Important — Documents originaux</h3>
+
+		    <p>
+			Pour toute dépense accompagnée d’une facture
+                	ou d’un coupon de caisse, le document original
+               	 	doit également être transmis. Il peut être remis
+                	en personne, envoyé par courrier interne ou
+                	par la poste. Le fichier joint au présent
+                	formulaire ne remplace pas le document original.
+		    </p>
+
+		    <label class="confirmation-documents-originaux">
+
+			<input
+			    type="checkbox"
+			    id="confirmationDocumentsOriginaux"
+			>
+			    Je confirme avoir pris connaissance de cette
+                	    consigne concernant la transmission des
+                	    documents originaux.
+		    </label>
+
+		</div>
+
+		<div class="boutons-actions">
+
+    		    <span class="bouton-action-info">
+			<button
+            		    type="button"
+            		    id="boutonGenererPDF"
+        	    >
+            		    💾 Enregistrer en PDF
+        	        </button>
+    		    </span>
+
+    		    <span class="bouton-action-info">
+        	        <button
+	    		    type="button"
+            		    id="boutonEnvoyerCourriel"
+        	        >
+	    		    ✉ Envoyer par courriel
+        	        </button>
+    		    </span>
+
+    		    <span class="bouton-action-info">
+        	        <button
+	    		    type="button"
+	    		    id="boutonImprimer"
+        	        >
+	    		    🖨 Imprimer
+        	        </button>
+    		    </span>
+	        </div>
+	    </section>
+
+
+
+            <!-- =========================================
+                 NAVIGATION ENTRE LES ÉTAPES
+            ========================================== -->
+
+	    <div class="bloc-navigation">
+
+	    	<div
+		    class="navigation-etapes"
+		    id="navigationEtapes"
+	    	>
+
+		    <button
+		        type="button"
+		        id="boutonRetour"
+		    >
+		        ← Précédent
+		    </button>
+
+		    <button
+		    	type="button"
+		    	id="boutonSuivant"
+		    >
+		        Suivant →
+		    </button>
+
+	    	</div>
+
+		<div class="zone-accueil">
+
+		    <button
+			type="button"
+			id="boutonAccueil"
+		    >
+			Retour à l'accueil général
+		    </button>
+		</div>
+
+	        <div class="zone-reinitialisation">
+
+		    <button
+		    	type="button"
+		    	id="boutonReinitialiser"
+		    >
+		        Réinitialiser le formulaire
+		    </button>
+
+	        </div>
+
+	    </div>
+
+	</div>
+
+    </main>
+
+
+    <!-- =========================================
+         MODALES
+    ========================================== -->
+
+
+    <!-- MODALE D'ERREUR -->
+
+    <div
+    	id="fenetreErreur"
+    	class="modale-overlay"
+    >
+
+        <div class="modale">
+
+	    <div class="modale-icone">
+	        !
+	    </div>
+
+	    <div class="modale-contenu">
+
+	        <h2>Erreur !</h2>
+
+	        <p id="messageErreur"></p>
+
+	    </div>
+
+	    <div class="modale-actions">
+
+	        <button
+		    type="button"
+		    id="boutonFermerErreur"
+		    class="bouton-modale bouton-modale-secondaire"
+	    	>
+		    OK
+	        </button>
+	    </div>
+    	</div>
+    </div>
+
+
+
+    <!-- MODALE D'AVERTISSEMENT -->
+
+    <div
+    	id="fenetreAvertissement"
+    	class="modale-overlay"
+    >
+
+        <div class="modale">
+
+	    <div class="modale-icone modale-icone-avertissement">
+	    	!
+	    </div>
+
+	    <div class="modale-contenu">
+
+	    	<h2>Avertissement!</h2>
+
+	    	<p id="messageAvertissement"></p>
+
+	    </div>
+
+	    <div class="modale-actions">
+
+	    	<button
+		    type="button"
+		    id="boutonRetourAvertissement"
+		    class="bouton-modale bouton-modale-secondaire"
+	    	>
+		    Retour
+	    	</button>
+
+	    	<button
+		    type="button"
+		    id="boutonPoursuivreAvertissement"
+		    class="bouton-modale bouton-modale-avertissement"
+	    	>
+		    Poursuivre
+	    	</button>
+	    </div>
+    	</div>
+    </div>
+
+
+
+    <!-- MODALE DE CONFIRMATION DE RÉINITIALISATION -->
+
+    <div
+    	id="fenetreReinitialisation"
+    	class="modale-overlay"
+    >
+
+        <div class="modale">
+	
+	    <div class="modale-icone modale-icone-avertissement">
+	    	!
+	    </div>
+
+	    <div class="modale-contenu">
+
+	    	<h2>Réinitialiser le formulaire?</h2>
+
+	    	<p>Toutes les informations saisies dans le formulaire seront supprimées.
+	    	</p>
+	    </div>
+
+	    <div class="modale-actions">
+
+	    	<button
+		    type="button"
+		    id="boutonAnnulerReinitialisation"
+		    class="bouton-modale bouton-modale-secondaire"
+	    	>
+		    Annuler
+	    	</button>
+
+	    	<button
+		    type="button"
+		    id="boutonConfirmerReinitialisation"
+		    class="bouton-modale bouton-modale-avertissement"
+	    	>
+		    Réinitialiser
+	    	</button>
+	    </div>
+    	</div>
+    </div>
+
+
+
+    <!-- MODALE DE CONFIRMATION D'ENVOI -->
+
+    <div
+        id="fenetreSucces"
+    	class="modale-overlay"
+    >
+
+    	<div class="modale">
+	
+	    <div class="modale-icone modale-icone-succes">
+	    	✓
+	    </div>
+
+	    <div class="modale-contenu">
+
+	    	<h2>Succès!</h2>
+
+	    	<p>
+		    Le rapport a été envoyé par courriel avec succès.
+	    	</p>
+
+	    </div>
+
+	    <div class="modale-actions">
+
+	        <button
+		    type="button"
+		    id="boutonFermerSucces"
+		    class="bouton-modale bouton-modale-principal"
+	    	>
+		    OK
+	    	</button>
+
+	    </div>
+    	</div>
+    </div>
+
+
+
+
+    <!-- MODALE D'ORIENTATION VERS UN AUTRE FORMULAIRE -->
+
+    <div id="fenetreOrientationFormulaire" class="modale-overlay">
+        <div class="modale">
+
+	    <div class="modale-icone modale-icone-orientation">
+	        ↗
+	    </div>
+
+	    <div class="modale-contenu">
+
+	    	<h2>Ce formulaire ne semble pas correspondre à votre situation!</h2>
+
+	    	<p>
+		    La date de départ et la date de retour doivent être différentes.
+	    	</p>
+
+	    	<p>
+		    Pour un déplacement aller-retour effectué dans la même journée, veuillez utiliser le formulaire B.
+	    	</p>
+
+	    </div>
+
+	    <div class="modale-actions">
+
+	    	<button
+		    type="button"
+		    id="boutonResterFormulaire"
+		    class="bouton-modale bouton-modale-secondaire"
+	    	>
+		    Ajouter une journée
+	    	</button>
+
+	    	<button
+		    type="button"
+		    id="boutonRetourAccueil"
+		    class="bouton-modale bouton-modale-orientation"
+	    	>
+	    	    Retourner à l'accueil
+	    	</button>
+	    </div>
+    	</div>
+    </div>
+
+
+    <div id="fenetreBrouillon" class="modale-overlay">
+	<div
+	    class="modale modale-brouillon"
+	    role="dialog"
+	    aria-modal="true"
+	    aria-labelledby="titreBrouillon"
+	>
+	    <div class="modale-icone modale-icone-orientation"
+		aria-hidden="true">↻</div>
+
+	    <div class="modale-contenu">
+		<h2 id="titreBrouillon">Un brouillon a été retrouvé</h2>
+
+		<p>
+                    Une demande précédente a été enregistrée sur cet ordinateur
+                    dans ce navigateur. Souhaitez-vous la reprendre ou commencer
+                    une nouvelle demande?
+		</p>
+	    </div>
+
+	    <div class="modale-actions actions-brouillon">
+		<button
+		    type="button"
+		    id="boutonNouvelleDemande"
+		    class="bouton-modale bouton-modale-secondaire"
+		>
+		    Nouvelle demande
+		</button>
+
+		<button
+		    type="button"
+		    id="boutonReprendreBrouillon"
+		    class="bouton-modale bouton-modale-principal"
+		>
+		    Reprendre
+		</button>
+	    </div>
+	</div>
+    </div>
+
+    <div id="fenetreNouvelleDemande" class="modale-overlay">
+	<div class="modale">
+	    <div class="modale-icone modale-icone-avertissement">!</div>
+
+	    <div class="modale-contenu">
+		<h2>Nouvelle demande</h2>
+		<p>
+		    Voulez-vous vraiment commencer une nouvelle demande? Le brouillon enregistré sera supprimé définitivement.
+		</p>
+	    </div>
+
+	    <div class="modale-actions">
+		<button
+		    type="button"
+		    id="boutonAnnulerNouvelleDemande"
+		    class="bouton-modale bouton-modale-secondaire"
+		>
+		    Annuler
+		</button>
+
+		<button
+	  	    type="button"
+		    id="boutonConfirmerNouvelleDemande"
+		    class="bouton-modale bouton-modale-avertissement"
+		>
+		    Nouvelle demande
+		</button>
+	    </div>
+	</div>
+    </div>
+
+
+
+
+    <!-- =========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
+    <script src="../parametres.js"></script>
+
+    <script src="js/validation.js"></script>
+    <script src="js/calculs.js"></script>
+    <script src="js/journees.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/pieces.js"></script>
+    <script src="js/pdf.js"></script>
+    <script src="js/modale.js"></script>
+    <script src="../autosauvegarde.js"></script>
+    <script src="../courriel.js"></script>
+
+</body>
+
+</html>

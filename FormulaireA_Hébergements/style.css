@@ -1,0 +1,2512 @@
+/* ============================================================
+   BASE
+============================================================ */
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #eef1f5;
+    margin: 0;
+    padding: 30px;
+    color: #222;
+}
+
+.formulaire {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 30px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #d5dbe3;
+    border-radius: 10px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+
+/* ============================================================
+   CHAMPS GÉNÉRAUX
+============================================================ */
+
+section > div {
+    margin-bottom: 6px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 3px;
+    margin-left: 10px;
+
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 20px;
+
+    align-self: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 7px 9px;
+
+    border: 1px solid #bbb;
+    border-radius: 5px;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* Champs de date et d'heure */
+
+input[type="date"],
+input[type="time"] {
+    max-width: 250px;
+}
+
+
+/* Retirer les flèches des champs numériques */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+/* Cases à cocher */
+
+section:has(h2) input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+
+    margin: 0 8px 0 0;
+
+    vertical-align: middle;
+}
+
+section:has(h2) label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+
+    min-height: 28px;
+
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+
+/* Champs qui prennent toute la largeur */
+
+section:has(h2) > div:last-child {
+    grid-column: 1 / -1;
+}
+
+
+/* Grille générale des sections */
+
+section:has(h2) > div {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 20px;
+}
+
+section:has(h2) > h3 {
+    grid-column: 1 / -1;
+}
+
+
+/* ============================================================
+   STRUCTURE GÉNÉRALE DES SECTIONS
+============================================================ */
+
+section {
+    margin-bottom: 25px;
+    padding: 20px;
+
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+
+    background-color: #f8f9fa;
+}
+
+section h2 {
+    margin: -20px -20px 18px -20px;
+    padding: 12px 20px;
+
+    background-color: #354352;
+    color: white;
+
+    border-radius: 8px 8px 0 0;
+
+    font-size: 21px;
+    font-weight: 600;
+}
+
+section h3 {
+    grid-column: 1 / -1;
+
+    margin-top: 30px;
+    margin-bottom: 12px;
+    padding: 4px 10px;
+
+    border-left: 4px solid #7f8c9a;
+
+    background-color: transparent;
+
+    color: #354352;
+
+    font-size: 19px;
+    font-weight: 600;
+}
+
+section h4 {
+    grid-column: 1 / -1;
+
+    margin-top: 22px;
+    margin-bottom: 12px;
+
+    color: #354352;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* Totaux généraux dans les sections */
+
+section > div > strong {
+    font-weight: 600;
+}
+
+section > div > strong + span {
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   EN-TÊTE
+============================================================ */
+
+.entete-formulaire {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.logo-formulaire {
+    width: 120px;
+    max-height: 100px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+.texte-entete h1 {
+    margin: 0 0 6px 0;
+}
+
+.texte-entete .sous-titre {
+    margin: 0;
+}
+
+
+/* ============================================================
+   BARRE DE PROGRESSION
+============================================================ */
+
+.progression {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+
+    margin: 25px 20px 35px 0;
+    padding: 0;
+}
+
+.progression-etape {
+    display: flex;
+    flex: 0 0 90px;
+    flex-direction: column;
+    align-items: center;
+
+    width: 90%;
+    min-width: 90px;
+
+    text-align: center;
+}
+
+.numero-etape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background-color: #d9dee4;
+    color: #354352;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.libelle-etape {
+    margin-top: 7px;
+
+    color: #7a838c;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+.progression-etape.active .numero-etape,
+.progression-etape.complete .numero-etape {
+    background-color: #354352;
+    color: white;
+}
+
+.progression-etape.active .libelle-etape,
+.progression-etape.complete .libelle-etape {
+    color: #354352;
+}
+
+.progression-etape.active .libelle-etape {
+    font-weight: 600;
+}
+
+.ligne-progression {
+    flex: 1;
+
+    height: 2px;
+
+    margin: 0 8px 25px;
+
+    background-color: #d9dee4;
+
+    transition: 0.2s;
+}
+
+.ligne-progression.complete {
+    background-color: #354352;
+}
+
+
+/* ============================================================
+   ÉTAPE 1 — IDENTIFICATION
+============================================================ */
+
+#etape1 .section-formulaire {
+    display: block !important;
+
+    width: 100%;
+}
+
+#etape1 .section-formulaire > div {
+    display: grid !important;
+
+    grid-template-columns: 220px 1fr !important;
+    column-gap: 20px;
+
+    align-items: start;
+
+    margin-bottom: 12px;
+}
+
+#etape1 .section-formulaire > div > label {
+    display: block;
+
+    margin-left: 10px;
+    margin-bottom: 0;
+    padding-top: 7px;
+}
+
+#etape1 .section-formulaire > div > input,
+#etape1 .section-formulaire > div > textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Dates et heures */
+
+#etape1 .section-formulaire .date-heure-ligne {
+    display: grid !important;
+
+    grid-template-columns: 220px 1fr !important;
+    column-gap: 20px;
+
+    align-items: start;
+}
+
+#etape1 .section-formulaire .date-heure-ligne > label {
+    margin-left: 10px;
+    padding-top: 7px;
+}
+
+#etape1 .section-formulaire .date-heure-champs {
+    display: grid !important;
+
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px;
+}
+
+#etape1 .section-formulaire .date-heure-champs input {
+    width: 100%;
+    max-width: none;
+}
+
+
+/* Sous-titres de l'étape 1 */
+
+#etape1 .section-formulaire h3 {
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid #d5dbe3;
+}
+
+
+/* Note obligatoire */
+
+.note-obligatoire {
+    margin-top: -8px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+.obligatoire {
+    color: #c62828;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   DATE ET HEURE — RÈGLES GÉNÉRALES
+============================================================ */
+
+.date-heure-ligne {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 20px;
+
+    margin-bottom: 6px;
+}
+
+.date-heure-ligne > label {
+    margin-left: 10px;
+
+    align-self: center;
+}
+
+.date-heure-champs {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.date-heure-champs input {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   ÉTAPE 2 — JOURNÉES
+============================================================ */
+
+/* L'écran 2 ne possède pas son propre encadrement */
+
+#etape2 {
+    border: none;
+    padding: 0;
+
+    background-color: transparent;
+}
+
+
+/* Conteneur */
+
+#conteneurJournees {
+    display: block;
+
+    width: 100%;
+}
+
+#conteneurJournees section {
+    display: block;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    border-color: #c8d0da;
+    background-color: #f5f6f8;
+}
+
+#conteneurJournees section h2 {
+    color: white;
+    border-bottom-color: transparent;
+}
+
+
+/* Accordéon */
+
+#conteneurJournees .entete-journee {
+    position: relative !important;
+
+    z-index: 9999 !important;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+
+#conteneurJournees .contenu-journee {
+    display: none !important;
+}
+
+#conteneurJournees section.journee-ouverte .contenu-journee {
+    display: block !important;
+}
+
+#conteneurJournees .resume-journee {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+
+    opacity: 0.9;
+}
+
+#conteneurJournees section.journee-ouverte .resume-journee {
+    display: none;
+}
+
+#conteneurJournees .indication-accordeon {
+    position: absolute;
+
+    right: 50px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #d9dee4;
+
+    font-size: 11px;
+    font-weight: 400;
+
+    white-space: nowrap;
+
+    opacity: 0.9;
+}
+
+
+#conteneurJournees .icone-journee {
+    position: absolute;
+
+    right: 20px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 16px;
+}
+
+
+/* Contrôles de l'accordéon */
+
+.controles-accordeon {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.controles-accordeon button {
+    padding: 8px 14px;
+
+    border: 1px solid #c8d0da;
+    border-radius: 6px;
+
+    background-color: #eef1f5;
+    color: #354352;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.15s ease;
+}
+
+.controles-accordeon button:hover {
+    background-color: #dfe4e9;
+}
+
+
+/* Bouton Ajouter une journée */
+
+#ajouterJournee {
+    display: block;
+
+    margin: 20px 0 30px;
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   SOUS-SECTIONS DES JOURNÉES
+============================================================ */
+
+.sous-section {
+    display: grid;
+
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 20px;
+
+    margin-bottom: 10px;
+    padding: 0 14px 12px;
+
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+}
+
+
+/* Titre */
+
+.sous-section h4 {
+    grid-column: 1 / -1;
+
+    margin: 0 -14px 8px;
+    padding: 10px 14px;
+
+    border-bottom: 1px solid #e1e5ea;
+    border-radius: 7px 7px 0 0;
+
+    background-color: #eef1f5;
+}
+
+
+/* Lignes */
+
+.sous-section > div:not(.total-sous-section) {
+    display: grid;
+
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    margin-bottom: 0;
+}
+
+
+/* Total de la sous-section */
+
+.sous-section .total-sous-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    grid-column: 1 / -1;
+
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding-top: 10px;
+
+    border-top: 1px solid #e1e5ea;
+}
+
+.sous-section .total-sous-section strong,
+.sous-section .total-sous-section span {
+    color: #354352;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   RÉCAPITULATIF D'UNE JOURNÉE
+============================================================ */
+
+.recapitulatif-journee {
+    display: block !important;
+
+    grid-column: 1 / -1;
+
+    margin-top: 25px;
+    padding: 20px;
+
+    border: 1px solid #c8d0da;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+}
+
+.recapitulatif-journee h3 {
+    margin: 0 -20px 15px;
+    padding: 10px 20px;
+
+    border-left: none;
+    border-bottom: 1px solid #e1e5ea;
+    border-radius: 7px 7px 0 0;
+
+    background-color: #eef1f5;
+
+    color: #354352;
+
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.recapitulatif-journee > div {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+}
+
+.recapitulatif-journee > div:last-child {
+    margin-top: 15px;
+    padding-top: 12px;
+
+    border-top: 2px solid #ccc;
+
+    font-size: 18px;
+}
+
+
+/* ============================================================
+   SÉLECTEUR D'HEURE
+============================================================ */
+
+.selecteur-heure {
+    display: flex;
+
+    gap: 10px;
+}
+
+.selecteur-heure select {
+    width: 120px;
+
+    padding: 10px;
+
+    border: 1px solid #bbb;
+    border-radius: 5px;
+
+    background-color: white;
+
+    font-size: 16px;
+}
+
+.selecteur-heure select:first-child,
+.selecteur-heure select:last-child {
+    width: 120px;
+}
+
+
+/* ============================================================
+   CHOIX DES REPAS
+============================================================ */
+
+.sous-section .repas-options {
+    display: grid !important;
+
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    grid-template-rows: 1fr;
+
+    width: 100%;
+
+    gap: 10px 20px;
+
+    margin: 0;
+}
+
+.sous-section .repas-options > div {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    min-width: 0;
+
+    margin: 0 !important;
+    padding: 0;
+}
+
+.sous-section .repas-options label {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 4px 0 !important;
+
+    text-align: center;
+
+    font-weight: 600;
+}
+
+.sous-section .repas-options span {
+    display: block;
+
+    margin: 0 0 8px 0;
+
+    text-align: center;
+}
+
+.sous-section .repas-options input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+
+    margin: 0 !important;
+}
+
+
+/* ============================================================
+   HÉBERGEMENT
+============================================================ */
+
+.sous-section .hebergement-options {
+    display: block !important;
+
+    grid-column: 1 / -1;
+
+    margin: 0;
+}
+
+.sous-section .hebergement-options > div {
+    margin-bottom: 8px !important;
+}
+
+
+/* Hôtel */
+
+.sous-section .hebergement-options > div:first-child {
+    display: grid !important;
+
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    align-items: center;
+
+    margin-left: 10px;
+}
+
+.sous-section .hebergement-options > div:first-child label {
+    display: flex;
+    align-items: center;
+
+    margin: 0;
+}
+
+.sous-section .hebergement-options > div:first-child input[type="number"] {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* Chez des proches */
+
+.sous-section .hebergement-options > div:last-child {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-left: 10px;
+}
+
+.sous-section .hebergement-options > div:last-child label {
+    display: flex;
+    align-items: center;
+
+    margin: 0;
+}
+
+.sous-section .hebergement-options .montant-proches {
+    margin-left: auto;
+    margin-right: 0;
+
+    color: #aaa;
+}
+
+/* Justification et compteur */
+
+.sous-section > div.champ-justification {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.champ-justification textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.compteur-justification {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 4px;
+    color: #777;
+    font-size: 0.85rem;
+    text-align: right;
+}
+
+.champ-justification .compteur-justification {
+    grid-column: 2;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+
+/* ============================================================
+   INFO-BULLE — RÈGLES D'ADMISSIBILITÉ DES REPAS
+============================================================ */
+
+.info-repas {
+    position: relative;
+    display: inline-block;
+    margin-left: 6px;
+    color: #78848c;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: help;
+}
+
+.info-bulle-repas {
+    position: absolute;
+
+    left: 50%;
+    bottom: calc(100% + 10px);
+
+    transform: translateX(-50%);
+
+    width: 350px;
+
+    padding: 12px 14px;
+
+    border: 1px solid #cfd6dc;
+    border-radius: 6px;
+
+    background-color: #ffffff;
+    color: #354352;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.45;
+
+    text-align: left;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+	opacity 0.15s ease,
+	visibility 0.15s ease;
+
+    z-index: 100;
+}
+
+.info-bulle-repas strong {
+    font-weight: 600;
+    color: #354352;
+}
+
+.info-repas:hover .info-bulle-repas {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* ============================================================
+   ÉTAPE 3 — DÉPENSES
+============================================================ */
+
+#etape3 {
+    border: none;
+    padding: 0;
+
+    background-color: transparent;
+}
+
+
+/* Conteneur principal */
+
+#etape3 > div {
+    display: block;
+
+    grid-column: auto;
+}
+
+
+/* Total du rapport */
+
+.total-rapport {
+    margin-top: 30px;
+    padding: 20px;
+
+    border: 1px solid #d5dbe0;
+    border-radius: 8px;
+
+    background-color: #f8f9fa;
+}
+
+.total-rapport h2 {
+    margin: -20px -20px 18px;
+    padding: 12px 20px;
+
+    background-color: #354352;
+    color: white;
+
+    border-radius: 8px 8px 0 0;
+
+    font-size: 19px;
+    font-weight: 600;
+}
+
+
+/* Résumé global */
+
+#etape3 .resume-depenses {
+    display: block;
+
+    margin-top: 20px;
+    padding: 20px;
+
+    border: 1px solid #d9dee5;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+}
+
+#etape3 .resume-depenses h3 {
+    margin: 0 0 15px;
+
+    color: #354352;
+
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* Ligne de dépense */
+
+#etape3 .ligne-depense {
+    display: flex;
+
+    grid-column: auto;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #edf0f3;
+}
+
+#etape3 .ligne-depense:last-child {
+    border-bottom: none;
+}
+
+#etape3 .ligne-depense span:last-child {
+    font-weight: 600;
+    text-align: right;
+}
+
+
+/* Nombre de journées */
+
+#etape3 .resume-nombre-journees {
+    display: block;
+
+    margin-top: 15px;
+    padding: 14px 20px;
+
+    border-radius: 8px;
+
+    background-color: #eef1f5;
+
+    color: #354352;
+}
+
+#etape3 .resume-nombre-journees span {
+    font-weight: 600;
+}
+
+
+/* Résumé par journée */
+
+#etape3 .resume-journees-rapport {
+    display: block;
+
+    grid-column: 1 / -1;
+
+    margin-top: 25px;
+    padding: 20px;
+
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+}
+
+#etape3 .resume-journees-rapport h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+#etape3 #conteneurResumeJournees {
+    display: block;
+
+    width: 100%;
+}
+
+
+/* Chaque journée */
+
+#etape3 .resume-journee-rapport {
+    padding: 14px 16px;
+
+    border: 1px solid #e1e5ea;
+    border-radius: 6px;
+
+    background-color: #f8f9fa;
+}
+
+#etape3 .resume-journee-rapport + .resume-journee-rapport {
+    margin-top: 10px;
+}
+
+
+/* Titre de la journée */
+
+#etape3 .resume-journee-rapport h4 {
+    margin: 0 0 8px;
+
+    color: #333;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* Détails */
+
+#etape3 .resume-journee-rapport div {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* Total de la journée */
+
+#etape3 .resume-journee-rapport strong {
+    display: block;
+
+    margin-top: 8px;
+    padding-top: 8px;
+
+    border-top: 1px solid #dfe3e8;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* Total final */
+
+#etape3 .total-rapport-final {
+    display: flex;
+
+    grid-column: auto;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 25px;
+    padding: 20px;
+
+    border: 1px solid #d9dee5;
+    border-radius: 8px;
+
+    background-color: #eef1f5;
+}
+
+#etape3 .total-rapport-final span {
+    color: #354352;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#etape3 .total-rapport-final strong {
+    color: #222222;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   ÉTAPE 4 — PIÈCES JUSTIFICATIVES
+============================================================ */
+
+/* Neutraliser la grille générale */
+
+#etape4 > div {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    grid-column: 1 / -1;
+
+    box-sizing: border-box;
+}
+
+#etape4 .pieces-justificatives {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* Zone de téléversement */
+
+#etape4 .zone-televersement {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 100%;
+    min-height: 180px;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding: 28px 25px;
+
+    box-sizing: border-box;
+
+    border: 2px dashed #c4cdd3;
+    border-radius: 10px;
+
+    background: #f8fafb;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+#etape4 .zone-televersement:hover {
+    background: #f4f7f9;
+    border-color: #8fa8ba;
+}
+
+
+/* Icône */
+
+#etape4 .icone-televersement {
+    margin-bottom: 10px;
+
+    font-size: 28px;
+    line-height: 1;
+}
+
+
+/* Texte */
+
+#etape4 .texte-televersement {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-bottom: 17px;
+}
+
+#etape4 .texte-televersement strong {
+    color: #37474f;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#etape4 .texte-televersement span {
+    color: #7a858c;
+
+    font-size: 13px;
+}
+
+
+/* Bouton de téléversement */
+
+#etape4 .bouton-fichiers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 40px;
+
+    padding: 0 17px;
+
+    border: 1px solid #c8d0d6;
+    border-radius: 6px;
+
+    background: #ffffff;
+    color: #46545d;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.05s ease;
+}
+
+#etape4 .bouton-fichiers:hover {
+    background: #f1f4f6;
+    border-color: #aeb8bf;
+}
+
+#etape4 .bouton-fichiers:active {
+    transform: translateY(1px);
+}
+
+
+/* Champ de fichier */
+
+#etape4 input[type="file"] {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* Champ de fichier désactivé */
+
+.bouton-fichiers:has(+ input[type="file"]:disabled) {
+    cursor: not-allowed;
+
+    background-color: #dfe3e7;
+    color: #9aa1a8;
+
+    border-color: #c8cdd2;
+}
+
+.bouton-fichiers:has(+ input[type="file"]:disabled):hover {
+    cursor: not-allowed;
+
+    background-color: #dfe3e7;
+    color: #9aa1a8;
+
+    border-color: #c8cdd2;
+}
+
+.bouton-fichiers:has(+ input[type="file"]:disabled)::after {
+    content: "Veuillez sélectionner une date de départ avant d'ajouter des pièces justificatives.";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: calc(100% + 8px);
+
+    transform: translateX(-50%);
+
+    padding: 7px 10px;
+
+    border-radius: 5px;
+
+    background-color: #354352;
+    color: white;
+
+    font-size: 13px;
+    font-weight: normal;
+
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: opacity 0.15s ease;
+
+    z-index: 1000;
+}
+
+.bouton-fichiers:has(+ input[type="file"]:disabled):hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* En-tête de la liste */
+
+#etape4 .entete-pieces-justificatives {
+    display: grid;
+
+    grid-template-columns: 1fr 36px;
+    gap: 12px;
+
+    margin: 20px 0 0;
+    padding: 0 2px 7px;
+
+    border-bottom: 1px solid #d6dde2;
+
+    color: #7a858c;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* Liste */
+
+#etape4 #listePiecesJustificatives {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+
+/* Fichier */
+
+#etape4 .piece-justificative {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 58px;
+
+    padding: 9px 12px;
+
+    border: 1px solid #d6dde2;
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+/* Informations du fichier */
+
+#etape4 .informations-fichier {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+/* Icône du document */
+
+#etape4 .icone-fichier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 6px;
+
+    background: #edf3f7;
+
+    font-size: 18px;
+}
+
+
+/* Nom du document */
+
+#etape4 .nom-fichier {
+    overflow: hidden;
+
+    color: #37474f;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* Bouton supprimer */
+
+#etape4 .supprimer-piece {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 5px;
+
+    background: transparent;
+    color: #59666e;
+
+    font-family: inherit;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+#etape4 .supprimer-piece:hover {
+    background: #fff1f0;
+    color: #b42318;
+}
+
+.details-televersement {
+    margin: 8px 0 0;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #7a858c;
+}
+
+
+/* ============================================================
+   ÉTAPE 5 — VÉRIFICATION
+============================================================ */
+
+#etape5 .verification-rapport {
+    display: block;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 20px;
+    padding: 20px;
+
+    border: 1px solid #d9dee5;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+}
+
+#etape5 .verification-rapport:first-of-type {
+    margin-top: 0;
+}
+
+#etape5 .verification-rapport + .verification-rapport {
+    margin-top: 20px;
+}
+
+#etape5 .verification-rapport:first-of-type h3,
+#etape5 .verification-rapport + .verification-rapport h3 {
+    margin-top: 0;
+}
+
+
+/* Lignes */
+
+#etape5 .verification-ligne {
+    display: flex;
+    align-items: flex-start;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #edf0f3;
+}
+
+#etape5 .verification-ligne:last-child {
+    border-bottom: none;
+}
+
+#etape5 .verification-ligne strong {
+    flex: 0 0 190px;
+
+    color: #354352;
+
+    font-weight: 600;
+}
+
+#etape5 .verification-ligne span {
+    flex: 1;
+
+    color: #333333;
+
+    text-align: left;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* Total général */
+
+#etape5 .verification-rapport:nth-of-type(2) .verification-ligne {
+    margin-top: 10px;
+    padding-top: 14px;
+
+    border-top: 2px solid #d5dbe3;
+    border-bottom: none;
+}
+
+#etape5 .verification-rapport:nth-of-type(2) .verification-ligne strong {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+#etape5 .verification-rapport:nth-of-type(2) .verification-ligne span {
+    color: #222222;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    text-align: right;
+}
+
+
+/* Boutons d'actions */
+
+#etape5 .boutons-actions {
+    display: flex;
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+}
+
+.bouton-action-info {
+    position: relative;
+
+    flex: 1;
+}
+
+.bouton-action-info button {
+    width: 100%;
+}
+
+
+/* Style général des boutons d'action */
+
+.boutons-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 30px;
+    padding-top: 20px;
+
+    border-top: 1px solid #d5dbe3;
+}
+
+.boutons-actions button {
+    flex: 1;
+
+    padding: 10px 16px;
+
+    border: 1px solid #c8d0da;
+    border-radius: 6px;
+
+    background-color: #eef1f5;
+    color: #354352;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.15s ease;
+}
+
+.boutons-actions button:hover {
+    background-color: #dfe4e9;
+}
+
+.boutons-actions button:disabled {
+    background-color: #dfe3e7;
+    color: #9aa1a8;
+
+    border-color: #c8cdd2;
+
+    cursor: not-allowed;
+
+    opacity: 0.65;
+}
+
+
+/* ============================================================
+   TRANSMISSION DES FACTURES — DOCUMENTS ORIGINAUX
+============================================================ */
+
+.avis-documents-originaux {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    margin: 28px 0;
+    padding: 20px 24px;
+
+    background-color: #fff8e6;
+
+    border: 1px solid #e8c96a;
+    border-left: 5px solid #d5a323;
+    border-radius: 8px;
+
+    color: #343434;
+}
+
+/* Titre */
+
+.avis-documents-originaux h3 {
+    display: block;
+
+    margin: 0 0 12px;
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #75540b;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+/* Paragraphe explicatif */
+
+.avis-documents-originaux p {
+    display: block;
+
+    margin: 0 0 18px;
+    padding: 0;
+
+    line-height: 1.65;
+    font-size: 0.95rem;
+}
+
+/* Confirmation */
+
+.avis-documents-originaux .confirmation-documents-originaux {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    gap: 10px;
+
+    margin: 0;
+    padding: 14px 0 0;
+
+    border-top: 1px solid #eadcae;
+
+    line-height: 1.5;
+    font-size: 0.93rem;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+/* Case à cocher */
+
+.avis-documents-originaux .confirmation-documents-originaux input[type="checkbox"] {
+    display: block;
+
+    flex: 0 0 18px;
+
+    width: 18px;
+    height: 18px;
+
+    margin: 2px 0 0;
+
+    accent-color: #80600f;
+
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+
+.bloc-navigation {
+    margin-top: 25px;
+
+    border-top: 1px solid #e5e9ec;
+
+    background: #fafbfc;
+}
+
+
+/* Navigation principale */
+
+.navigation-etapes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 25px 42px;
+}
+
+.navigation-etapes button {
+    min-width: 120px;
+    height: 44px;
+
+    padding: 0 20px;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.05s ease;
+}
+
+.navigation-etapes button:active {
+    transform: translateY(1px);
+}
+
+
+/* Précédent */
+
+#boutonRetour {
+    border: 1px solid #c8d0d6;
+
+    background: #ffffff;
+    color: #46545d;
+}
+
+#boutonRetour:hover {
+    background: #f1f4f6;
+    border-color: #aeb8bf;
+}
+
+
+/* Suivant */
+
+#boutonSuivant {
+    margin-left: auto;
+
+    border: 1px solid #244f70;
+
+    background: #354352;
+    color: #ffffff;
+}
+
+#boutonSuivant:hover {
+    background: #2c3844;
+    border-color: #2c3844;
+}
+
+
+/* Retour à l'accueil */
+
+.zone-accueil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 5px 0 12px;
+}
+
+#boutonAccueil {
+    padding: 5px 10px;
+
+    border: none;
+
+    background: transparent;
+    color: #78848c;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+#boutonAccueil:hover {
+    color: #354352;
+}
+
+
+/* Réinitialisation */
+
+.zone-reinitialisation {
+    display: flex;
+    justify-content: center;
+
+    padding: 0 42px 28px;
+}
+
+#boutonReinitialiser {
+    padding: 5px 10px;
+
+    border: none;
+
+    background: transparent;
+    color: #78848c;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+#boutonReinitialiser:hover {
+    color: #b42318;
+}
+
+
+/* ============================================================
+   MODALES — STRUCTURE COMMUNE
+============================================================ */
+
+.modale-overlay {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.modale-overlay.active {
+    display: flex;
+}
+
+.modale {
+    width: min(90%, 430px);
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.20);
+}
+
+.modale-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    margin-bottom: 18px;
+
+    border-radius: 50%;
+
+    background-color: #fff1f0;
+    color: #b42318;
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.modale-contenu h2 {
+    margin: 0 0 10px;
+
+    color: #222222;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.modale-contenu p {
+    margin: 0;
+
+    color: #444444;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.modale-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 26px;
+}
+
+.bouton-modale {
+    height: 42px;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.bouton-modale-secondaire {
+    background-color: #eef1f5;
+    color: #354352;
+}
+
+.bouton-modale-secondaire:hover {
+    background-color: #dfe4e9;
+}
+
+
+/* ============================================================
+   MODALE D'AVERTISSEMENT
+============================================================ */
+
+.modale-icone-avertissement {
+    background-color: #fff8e1;
+    color: #b7791f;
+}
+
+.bouton-modale-avertissement {
+    background-color: #f2c94c;
+    color: #3d3200;
+}
+
+.bouton-modale-avertissement:hover {
+    background-color: #e6b93f;
+}
+
+#fenetreAvertissement .modale-actions,
+#fenetreReinitialisation .modale-actions,
+#fenetreNouvelleDemande .modale-actions {
+    gap: 14px;
+}
+
+
+/* Réinitialisation */
+
+#fenetreReinitialisation .bouton-modale-avertissement,
+#fenetreNouvelleDemande .bouton-modale-avertissement {
+    background-color: #b42318;
+    color: white;
+}
+
+#fenetreReinitialisation .bouton-modale-avertissement:hover,
+#fenetreNouvelleDemande .bouton-modale-avertissement:hover {
+    background-color: #922018;
+}
+
+#fenetreReinitialisation .modale-icone-avertissement,
+#fenetreNouvelleDemande .modale-icone-avertissement {
+    background-color: #fff1f0;
+    color: #b42318;
+}
+
+
+/* ============================================================
+   MODALE DE SUCCÈS
+============================================================ */
+
+#fenetreSucces .modale-actions {
+    gap: 14px;
+}
+
+#fenetreSucces .modale-icone-succes {
+    background-color: #eaf6ec;
+    color: #2e7d32;
+}
+
+#fenetreSucces .bouton-modale-principal {
+    background-color: #2e7d32;
+    color: white;
+}
+
+#fenetreSucces .bouton-modale-principal:hover {
+    background-color: #256628;
+}
+
+
+/* ============================================================
+   MODALE D'ORIENTATION
+============================================================ */
+
+#fenetreOrientationFormulaire .modale-actions {
+    gap: 14px;
+}
+
+#fenetreOrientationFormulaire .modale-icone-orientation {
+    background-color: #eef1f5 !important;
+    color: #354352 !important;
+
+    font-size: 22px;
+}
+
+#fenetreOrientationFormulaire .bouton-modale {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 42px;
+
+    padding: 0 20px;
+
+    color: #354352;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+
+    white-space: nowrap;
+    text-align: center;
+}
+
+#fenetreOrientationFormulaire .bouton-modale-orientation {
+    background-color: #354352;
+    color: #ffffff;
+}
+
+#fenetreOrientationFormulaire .bouton-modale-orientation:hover {
+    background-color: #2c3844;
+}
+
+#fenetreOrientationFormulaire .bouton-modale-secondaire {
+    background-color: #eef1f5;
+    color: #354352;
+}
+
+
+/* ============================================================
+   AUTRES BOUTONS / ÉLÉMENTS
+============================================================ */
+
+/* Ancien bouton de suppression conservé pour compatibilité */
+
+.bouton-supprimer-piece {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 42px;
+
+    padding: 0;
+
+    border: 1px solid #c8cfd5;
+    border-radius: 5px;
+
+    background-color: #f8f9fa;
+    color: #354352;
+
+    font-family: inherit;
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.bouton-supprimer-piece:hover {
+    background-color: #e9ecef;
+}
+
+
+/* ============================================================
+   AVIS — SAUVEGARDE AUTOMATIQUE
+============================================================ */
+
+.avis-autosauvegarde {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    margin: 0 0 20px;
+    padding: 16px 18px;
+    
+    border: 1px solid #cbd9e3;
+    border-left: 4px solid #527b96;
+    border-radius: 8px;
+
+    background-color: #f2f7fa;
+    color: #354352;
+}
+
+.icone-autosauvegarde {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    background-color: #dcebe3;
+    color: #286744;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.texte-autosauvegarde {
+    flex: 1;
+    min-width: 0;
+}
+
+.texte-autosauvegarde strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.texte-autosauvegarde p {
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+#statutAutosauvegarde {
+    display: block;
+    color: #687780;
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   MODALE — REPRISE D'UN BROUILLON
+============================================================ */
+
+#fenetreBrouillon .modale {
+    width: min(90%, 500px);
+}
+
+#fenetreBrouillon .modale-icone {
+    background-color: #eef1f5;
+    color: #354352;
+}
+
+#fenetreBrouillon .modale-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#fenetreBrouillon .bouton-modale-principal {
+    background-color: #354352;
+    color: #ffffff;
+}
+
+#fenetreBrouillon .bouton-modale-principal:hover {
+    background-color: #2c3844;
+}
+
+
+/* ============================================================
+   TRANSPORT PUBLIC — LIGNES DYNAMIQUES
+   ============================================================ */
+
+/* Conteneur des lignes de transport */
+
+.conteneur-transports-publics {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+/* Chaque ligne de transport */
+
+#conteneurJournees .sous-section .conteneur-transports-publics .transport-public-ligne {
+    display: grid !important;
+    grid-template-columns: calc(50% - 12px) minmax(0, 1fr) 38px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    align-items: end;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid #d5dbe3;
+    border-radius: 8px;
+    background-color: #f8fafc;
+}
+
+#conteneurJournees .sous-section .conteneur-transports-publics {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    min-width: 0;
+}
+
+#conteneurJournees .sous-section .conteneur-transports-publics > .transport-public-ligne {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+}
+
+.transport-public-ligne > div:first-child {
+    width: 85%;
+}
+
+/* Champs de chaque ligne */
+
+.transport-public-ligne > div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+/* Libellés */
+
+.transport-public-ligne label {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+/* Menus déroulants et montants */
+
+.transport-public-ligne select,
+.transport-public-ligne input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Bouton de suppression */
+
+.bouton-supprimer-transport {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 0;
+    padding: 0;
+    border: 1px solid #e2b8b8;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #a52a2a;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.bouton-supprimer-transport:hover {
+    background-color: #fff0f0;
+    border-color: #c77;
+}
+
+.bouton-supprimer-transport:focus-visible {
+    outline: 2px solid #a52a2a;
+    outline-offset: 2px;
+}
+
+/* Bouton d'ajout */
+
+.bouton-ajouter-transport {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: start;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 8px 13px;
+    border: 1px solid #b8c9dc;
+    border-radius: 5px;
+    background-color: #f0f5fa;
+    color: #285781;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.bouton-ajouter-transport:hover {
+    background-color: #e1edf8;
+    border-color: #8eaccb;
+}
+
+.bouton-ajouter-transport:focus-visible {
+    outline: 2px solid #285781;
+    outline-offset: 2px;
+}
+
+.transport-public-ligne select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 7px 34px 7px 9px;
+
+    border: 1px solid #bbb;
+    border-radius: 5px;
+
+    background-color: #ffffff;
+    color: #222;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235b7188' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+}
+
+.transport-public-ligne select:focus {
+    outline: none;
+    border-color: #6b9bc7;
+    box-shadow: 0 0 0 3px rgba(107, 155, 199, 0.18);
+}

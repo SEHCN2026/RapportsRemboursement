@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rapport de déplacements</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../logo.jpg"
+    >
+
+    <link
+        rel="stylesheet"
+        href="FDstyle.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    >
+
+</head>
+
+
+<body>
+
+    <img
+	src="https://sehcn.com/wp-content/uploads/sites/61/2026/11/logo.png"
+	id="logoPDF"
+	alt=""
+	crossorigin="anonymous"
+	style="display: none;"
+    >
+
+    <main class="formulaire">
+
+
+        <!-- =========================================
+             EN-TÊTE
+        ========================================== -->
+
+        <div class="entete-formulaire">
+
+            <img
+                src="../logo.png"
+                alt="Logo"
+                class="logo-formulaire"
+            >
+
+            <div class="texte-entete">
+
+                <h1>Formulaire de remboursement</h1>
+
+                <p class="sous-titre">
+                    Formulaire à remplir pour demander un remboursement de dépenses pour une activité d'une seule journée.
+                </p>
+
+            </div>
+
+        </div>
+
+	<div class="avis-autosauvegarde" role="status">
+	    <span class="icone-autosauvegarde" aria-hidden="true">✓</span>
+
+	    <div class="texte-autosauvegarde">
+		<strong>Votre progression est enregistrée automatiquement.</strong>
+
+		<p>
+            	    Vous pouvez fermer le navigateur et reprendre votre formulaire
+            	    plus tard sur le même ordinateur, dans le même navigateur.
+            	    Les pièces justificatives ne sont pas sauvegardées :
+            	    vous devrez les joindre de nouveau à la reprise.
+            	    Votre brouillon peut être perdu si les données du navigateur
+            	    sont effacées.
+		</p>
+
+	 	<span id="statutAutosauvegarde" aria-live="polite">
+		    En attente de modifications
+		</span>
+	    </div>
+	</div>
+
+
+        <!-- =========================================
+             BARRE DE PROGRESSION
+        ========================================== -->
+
+        <div
+            class="progression"
+            id="progression"
+            aria-label="Progression du formulaire"
+        >
+
+            <div
+                class="progression-etape active"
+                data-etape="1"
+            >
+
+                <span class="numero-etape">1</span>
+
+                <span class="libelle-etape">
+                    Identification
+                </span>
+
+            </div>
+
+
+            <div
+                class="ligne-progression"
+                data-ligne="1"
+            ></div>
+
+
+            <div
+                class="progression-etape"
+                data-etape="2"
+            >
+
+                <span class="numero-etape">2</span>
+
+                <span class="libelle-etape">
+                    Détails du déplacement
+                </span>
+
+            </div>
+
+
+            <div
+                class="ligne-progression"
+                data-ligne="2"
+            ></div>
+
+
+            <div
+                class="progression-etape"
+                data-etape="3"
+            >
+
+                <span class="numero-etape">3</span>
+
+                <span class="libelle-etape">
+                    Résumé des dépenses
+                </span>
+
+            </div>
+
+
+            <div
+                class="ligne-progression"
+                data-ligne="3"
+            ></div>
+
+
+            <div
+                class="progression-etape"
+                data-etape="4"
+            >
+
+                <span class="numero-etape">4</span>
+
+                <span class="libelle-etape">
+                    Pièces justificatives
+                </span>
+
+            </div>
+
+
+            <div
+                class="ligne-progression"
+                data-ligne="4"
+            ></div>
+
+
+            <div
+                class="progression-etape"
+                data-etape="5"
+            >
+
+                <span class="numero-etape">5</span>
+
+                <span class="libelle-etape">
+                    Vérification et envoi
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             CONTENU DU FORMULAIRE
+        ========================================== -->
+
+        <div id="contenuFormulaire">
+
+
+            <!-- =========================================
+                 ÉTAPE 1 : IDENTIFICATION
+            ========================================== -->
+
+            <section
+                class="etape"
+                data-etape="1"
+                id="etape1"
+            >
+
+                <h2>Identification et activité</h2>
+
+
+                <div class="note-obligatoire">
+
+                    <span class="obligatoire">
+                        * Champ obligatoire
+                    </span>
+
+                </div>
+
+
+                <!-- COORDONNÉES -->
+
+                <div class="section-formulaire">
+
+                    <h3>Coordonnées</h3>
+
+
+                    <div>
+
+                        <label for="nom">
+
+                            Nom
+
+                            <span class="obligatoire">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="nom"
+                            name="nom"
+                            required
+                            placeholder="Inscrire votre nom complet"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="courriel">
+
+                            Courriel
+
+                            <span class="obligatoire">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="courriel"
+                            name="courriel"
+                            required
+                            placeholder="Inscrire votre adresse courriel du CSS"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="adresse">
+
+                            Adresse
+
+                            <span class="obligatoire">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <textarea
+                            id="adresse"
+                            name="adresse"
+                            rows="2"
+                            required
+                            placeholder="Inscrire votre adresse complète"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INFORMATIONS SUR L'ACTIVITÉ -->
+
+                <div class="section-formulaire">
+
+                    <h3>Informations sur l'activité</h3>
+
+
+                    <div class="date-heure-ligne">
+
+                        <label>
+
+                            Date de l'activité
+
+                            <span class="obligatoire">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <div class="date-heure-champs">
+
+                            <input
+                                type="text"
+                                id="dateActivite"
+                                name="dateActivite"
+                                placeholder="Date"
+                                readonly
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="date-heure-ligne">
+
+                        <label>
+
+                            Heure de départ et de retour
+
+                            <span class="obligatoire">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <div class="date-heure-champs">
+
+                            <input
+                                type="time"
+                                id="heureDepart"
+                                name="heureDepart"
+                                required
+                            >
+
+
+                            <input
+                                type="time"
+                                id="heureRetour"
+                                name="heureRetour"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="motifActivite">
+
+                            Nature de l'activité
+
+                            <span class="obligatoire">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <textarea
+                            id="motifActivite"
+                            name="motifActivite"
+                            rows="4"
+                            required
+                            placeholder="Inscrire la nature de l'activité"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 ÉTAPE 2 : DÉPLACEMENT
+            ========================================== -->
+
+            <section
+                class="etape"
+                data-etape="2"
+                id="etape2"
+                style="display: none;"
+            >
+
+                <h2>Déplacements et dépenses</h2>
+
+
+                <!-- TRANSPORTS -->
+
+                <div class="section-formulaire">
+
+                    <h3>Transports</h3>
+
+		    <div class="sous-section sous-section-deplacements">
+
+			<h4>
+			    Déplacements
+			    <span class="info-repas">
+				ⓘ
+			    	<span class="info-bulle-repas">
+				    <strong>Types de déplacements</strong><br><br>
+
+				Choisir si le déplacement est un aller-retour direct ou avec arrêts intermédiaires. 
+				Le trajet avec arrêts intermédiaires est celui pour lequel une ville est ajoutée dans le parcours, 
+				sans que celle-ci ne soit le point de départ ou le point d'arrivée.
+				</span>
+			    </span>
+			</h4>
+
+			<div class="choix-type-trajet">
+			    <p class="label-type-trajet">Type de trajet</p>
+
+			    <label>
+				<input
+				    type="radio"
+				    name="typeTrajet"
+				    id="trajetDirect"
+				    value="direct"
+				    checked
+				>
+				Aller-retour direct
+			    </label>
+
+			    <label>
+				<input
+				    type="radio"
+				    name="typeTrajet"
+				    id="trajetAvecArrets"
+				    value="arrets"
+				>
+				Aller-retour avec arrêts intermédiaires
+			    </label>
+			</div>
+
+                        <div class="itineraire-principal">
+
+			    <div>
+                            	<label for="villeDepart">
+                                    École la plus près du lieu de départ
+
+				    <span class="info-repas">
+				    	ⓘ
+				    	<span class="info-bulle-repas">
+					    <strong>Choix de l'école</strong><br><br>
+					    Choisir l'école la plus proche de son lieu de départ. Pour les départs du secteur Mingan, choisir SEHCN.
+				        </span>
+				    </span>
+                                </label>
+
+                                <select id="villeDepart" name="villeDepart" required>
+                            	    <option value="" disabled selected>
+                                        Sélectionner l'école la plus près du lieu de départ
+                            	    </option>
+                            	    <option value="Baie-Comeau (Mingan)">SEHCN (Mingan)</option>
+				    <option value="Baie-Comeau (St-Georges)">Boisvert (St-Georges)</option>
+                            	    <option value="Les Bergeronnes">Dominique-Savio / Poly. des Berges (Les Bergeronnes)</option>
+                            	    <option value="Pointe-Lebel">La Marée (Pointe-Lebel)</option>
+                            	    <option value="Pointe-aux-Outardes">Les Dunes (Pointe-aux-Outardes)</option>
+                            	    <option value="Baie-Comeau (Marquette)">Leventoux / Poly. des Baies (Marquette)</option>
+                            	    <option value="Les Escoumins">Marie-Immaculée (Les Escoumins)</option>
+                            	    <option value="Portneuf-sur-Mer">Mgr-Bouchard (Portneuf-sur-Mer)</option>
+                            	    <option value="Godbout"> Mgr-Labrie (Godbout)</option>
+                            	    <option value="Longue-Rive">Notre-Dame-du-Bon-Conseil (Longue-Rive)</option>
+                            	    <option value="Sacré-Cœur">Notre-Dame-du-Sacré-Cœur (Sacré-Cœur)</option>
+                            	    <option value="Franquelin">Père-Duclos (Franquelin)</option>
+                            	    <option value="Chute-aux-Outardes">Richard (Chute-aux-Outardes)</option>
+                            	    <option value="Colombier">St-Cœur-de-Marie (Colombier)</option>
+                            	    <option value="Baie-Trinité">St-Joseph (Baie-Trinité)</option>
+                            	    <option value="Tadoussac">St-Joseph (Tadoussac)</option>
+                                    <option value="Forestville">St-Luc / Poly. des Rivières (Forestville)</option>
+                            	    <option value="Ragueneau">Ste-Marie (Ragueneau)</option>
+                                </select>
+                            </div>
+
+			    <div>
+
+                                <label for="villeActivite">Ville de l'activité</label>
+
+                                <select id="villeActivite" name="villeActivite" required>
+                                    <option value="" disabled selected > Sélectionner la ville de l'activité </option>
+                            	    <option value="Baie-Comeau (Marquette)">Baie-Comeau (Marquette)</option>
+                            	    <option value="Baie-Comeau (Mingan)">Baie-Comeau (Mingan)</option>
+				    <option value="Baie-Comeau (St-Georges)">Baie-Comeau (St-Georges)</option>
+                            	    <option value="Baie-Trinité">Baie-Trinité</option>
+                            	    <option value="Chicoutimi">Chicoutimi</option>
+                            	    <option value="Chute-aux-Outardes">Chute-aux-Outardes</option>
+                            	    <option value="Colombier">Colombier</option>
+                            	    <option value="Forestville">Forestville</option>
+                            	    <option value="Franquelin">Franquelin</option>
+                            	    <option value="Godbout">Godbout</option>
+                            	    <option value="Les Bergeronnes">Les Bergeronnes</option>
+                            	    <option value="Les Escoumins">Les Escoumins</option>
+                            	    <option value="Longue-Rive">Longue-Rive</option>
+                            	    <option value="Pointe-aux-Outardes">Pointe-aux-Outardes</option>
+                            	    <option value="Pointe-Lebel">Pointe-Lebel</option>
+                            	    <option value="Portneuf-sur-Mer">Portneuf-sur-Mer</option>
+                            	    <option value="Ragueneau">Ragueneau</option>
+                            	    <option value="Sacré-Cœur">Sacré-Cœur</option>
+                            	    <option value="Sept-Îles">Sept-Îles</option>
+                            	    <option value="Tadoussac">Tadoussac</option>
+                            	</select>
+                    	    </div>
+			</div>
+
+			<div id="sectionArretsAller" class="bloc-itineraire" hidden>
+
+			    <h5>Trajet aller</h5>
+			    <p class="description-itineraire">
+				Ajoutez les villes intermédiaires, s'il y a lieu, vers la destination, dans l'ordre du déplacement
+			    </p>
+
+			    <div class="ligne-ajout-arret">
+				<button
+				    type="button"
+				    id="ajouterArretAller"
+				    class="bouton-ajouter-arret"
+				>
+				    + Ajouter une ville à l'aller
+				</button>
+
+				<div id="conteneurArretsAller"></div>
+
+			    </div>
+
+			</div>
+
+
+			<!-- ARRÊTS INTERMÉDIAIRES AU RETOUR -->
+
+			<div id="sectionArretsRetour" class="bloc-itineraire" hidden>
+
+			    <h5>Trajet retour</h5>
+			    <p class="description-itineraire">
+				Ajoutez les villes intermédiaires, s'il y a lieu, avant de revenir au point de départ, dans l'ordre du déplacement
+			    </p>
+
+			    <div class="ligne-ajout-arret">
+			    <button
+				type="button"
+				id="ajouterArretRetour"
+				class="bouton-ajouter-arret"
+			    >
+				+ Ajouter une ville au retour
+			    </button>
+
+			    <div id="conteneurArretsRetour"></div>
+			    </div>
+
+			</div>
+
+                        <div class="bloc-calcul-deplacements">
+			    <h5>Calcul des déplacements</h5>
+
+			    <div class="ligne-calcul-deplacements">
+                            	<label for="kilometrage">Nombre de kilomètres total</label>
+                            	<span id="kilometrage" class="valeur-calculee">0,0 km</span>
+                            </div>
+
+			    <div class="ligne-calcul-deplacements">
+			    	<label for="tauxKilometrique">Taux kilométrique</label>
+			    	<span id="tauxKilometrique" class="valeur-calculee">0,00 $ / km</span>
+			    </div>
+
+			    <div class="total-sous-section">
+			    	<label for="totalDeplacements">Total déplacements :</label>
+			    	<span id="totalDeplacements">0,00 $</span>
+			    </div>
+
+		        </div>
+
+		    </div>
+
+		    <div class="sous-section">
+
+			<h4>Location automobile</h4>
+
+                    	<div>
+
+                            <label for="locationCout">
+                            	Location — Coût
+                            </label>
+
+                            <input
+                            	type="text"
+				inputmode="decimal"
+                            	id="locationCout"
+                            	name="locationCout"
+                            	placeholder="Inscrire le montant"
+                            >
+
+                    	</div>
+
+                    	<div>
+                            <label for="locationEssence">
+                            	Location — essence
+                            </label>
+
+                            <input
+                            	type="text"
+				inputmode="decimal"
+                            	id="locationEssence"
+                            	name="locationEssence"
+                            	placeholder="Inscrire le montant"
+				disabled
+                            >
+                    	</div>
+
+			<div class="total-sous-section">
+                            <label for="totalLocation">
+                            	Total location :
+                            </label>
+
+                            <span id="totalLocation">
+                            	0,00 $
+                            </span>
+			</div>
+
+		    </div>
+
+		    <div class="sous-section">
+
+			<h4>
+			    Transports publics
+
+			    <span class="info-repas">
+				ⓘ
+			    	<span class="info-bulle-repas">
+				    <strong>Transports publics</strong><br><br>
+
+				Choisir dans la liste déroulante tout type de transport public utilisé durant la journée. Vous
+				pouvez en ajouter autant que nécessaire.
+
+				</span>
+			    </span>
+			</h4>
+
+                    	<div
+			    id="conteneurTransportsPublics"
+			    class="conteneur-transports-publics"
+			>
+
+			    <div class="transport-public-ligne">
+
+				<div>
+				    <label for="typeTransportPublic_1">
+					Type de transport
+				    </label>
+
+				    <select
+					id="typeTransportPublic_1"
+					name="typeTransportPublic_1"
+				    >
+					<option value="" disabled selected>Choisir un type de transport public</option>
+					<option value="Autobus">Autobus</option>
+					<option value="Avion">Avion</option>
+					<option value="Taxi">Taxi</option>
+					<option value="Train">Train</option>
+					<option value="Transport en commun municipal">Transport en commun municipal</option>
+					<option value="Traversier">Traversier</option>
+				    </select>
+				</div>
+
+				<div>
+				    <label for="montantTransportPublic_1">
+					Montant
+				    </label>
+
+				    <input
+					type="text"
+					inputmode="decimal"
+					id="montantTransportPublic_1"
+					name="montantTransportPublic_1"
+					placeholder="Inscrire le montant"
+				    >
+				</div>
+			    </div>
+			</div>
+
+			<button
+			    type="button"
+			    class="bouton-ajouter-transport"
+			>
+			    + Ajouter un transport
+			</button>
+
+			<div class="total-sous-section">
+
+                            <label for="totaltransportsPublics">
+                            	Total transports publics :
+                            </label>
+
+                            <span id="totalTransportsPublics">
+                            	0,00 $
+                            </span>
+
+			</div>
+
+		    </div>
+
+
+                <!-- REPAS -->
+
+                <div class="section-formulaire">
+
+                    <h3>Frais de séjour</h3>
+
+		    <div class="sous-section">
+
+			<h4>
+			    Repas
+
+			    <span class="info-repas">
+				ⓘ
+
+				<span class="info-bulle-repas">
+				    <strong>Admissibilité des repas</strong><br><br>
+
+				    Déjeuner: départ au plus tard à 7 h 30 et retour après 9 h.<br><br>
+				    Dîner départ au plus tard à 12 h et retour après 12 h 30.<br><br>
+				    Souper: départ au plus tard à 18 h et retour après 18 h 30.<br><br>
+				    Collation: départ au plus tard à 22 h et retour après 22 h.
+				</span>
+			    </span>
+			    				    
+			</h4>
+
+
+                    	<div class="repas-options">
+
+
+                            <div>
+
+                            	<label for="dejeuner">
+                                    Déjeuner
+                            	</label>
+
+                            	<span id="montantDejeuner">
+                                    0,00 $
+                            	</span>
+
+                            	<input
+                                    type="checkbox"
+                                    id="dejeuner"
+                                    name="dejeuner"
+                            	>
+
+                            </div>
+
+
+                            <div>
+
+                            	<label for="diner">
+                                    Dîner
+                            	</label>
+
+                            	<span id="montantDiner">
+                                    0,00 $
+                            	</span>
+
+                            	<input
+                                    type="checkbox"
+                                    id="diner"
+                                    name="diner"
+                            	>
+
+                            </div>
+
+
+                            <div>
+
+                            	<label for="souper">
+                                    Souper
+                            	</label>
+
+                            	<span id="montantSouper">
+                                    0,00 $
+                            	</span>
+
+                            	<input
+                                    type="checkbox"
+                                    id="souper"
+                                    name="souper"
+                            	>
+
+                            </div>
+
+
+                            <div>
+
+                            	<label for="collation">
+                                    Collation
+                            	</label>
+
+                            	<span id="montantCollation">
+                                    0,00 $
+                            	</span>
+
+                            	<input
+                                    type="checkbox"
+                                    id="collation"
+                                    name="collation"
+                            	>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="total-sous-section">
+
+                            <label for="totalRepas">
+                            	Total repas :
+                            </label>
+
+                            <span id="totalRepas">
+                            	0,00 $
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                <!-- FRAIS DIVERS -->
+
+                    <div class="sous-section">
+
+                        <h4>Frais divers</h4>
+
+
+                    	<div>
+
+                            <label for="stationnement">
+                            	Stationnement
+                            </label>
+
+
+                            <input
+                            	type="text"
+				inputmode="decimal"
+                            	id="stationnement"
+                            	name="stationnement"
+                            	placeholder="Inscrire le montant"
+                            >
+
+                    	</div>
+
+
+                    	<div>
+
+                            <label for="autresDepenses">
+                            	Autres dépenses
+                            </label>
+
+
+                            <input
+                            	type="text"
+				inputmode="decimal"
+                            	id="autresDepenses"
+                            	name="autresDepenses"
+                            	placeholder="Inscrire le montant"
+                            >
+
+                    	</div>
+
+
+                    	<div class="champ-justification">
+
+                            <label for="justification">
+                            	Justification
+                            </label>
+
+
+                            <textarea
+                            	id="justification"
+                            	name="justification"
+                            	rows="3"
+                            	placeholder=""
+				maxlength="40"
+				disabled
+                            ></textarea>
+
+			    <small
+				id="compteurJustification" 
+				class="compteur-caracteres">
+				0 / 40 caractères</small>
+
+                    	</div>
+
+
+                    	<div class="total-sous-section">
+
+                            <label for="totalAutresDepenses">
+                            	Total autres dépenses :
+                            </label>
+
+                            <span id="totalAutresDepenses">
+                            	0,00 $
+                            </span>
+
+                        </div>
+
+                    </div>
+
+		</div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 ÉTAPE 3 : DÉPENSES
+            ========================================== -->
+
+            <section
+                class="etape"
+                data-etape="3"
+                id="etape3"
+                style="display: none;"
+            >
+
+                <div class="total-rapport">
+
+                    <h2>Résumé des dépenses</h2>
+
+
+                    <div class="resume-depenses">
+
+
+                        <div class="ligne-depense">
+
+                            <span>
+                                Total kilométrage
+                            </span>
+
+                            <span id="totalRapportKilometrage">
+                                0,00 $
+                            </span>
+
+                        </div>
+
+
+                        <div class="ligne-depense">
+
+                            <span>
+                                Total location
+                            </span>
+
+                            <span id="totalRapportLocation">
+                                0,00 $
+                            </span>
+
+                        </div>
+
+
+                        <div class="ligne-depense">
+
+                            <span>
+                                Total transport public
+                            </span>
+
+                            <span id="totalRapportTransportsPublics">
+                                0,00 $
+                            </span>
+
+                        </div>
+
+
+                        <div class="ligne-depense">
+
+                            <span>
+                                Total repas
+                            </span>
+
+                            <span id="totalRapportRepas">
+                                0,00 $
+                            </span>
+
+                        </div>
+
+
+                        <div class="ligne-depense">
+
+                            <span>
+                                Total autres dépenses
+                            </span>
+
+                            <span id="totalRapportAutresDepenses">
+                                0,00 $
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="total-rapport-final">
+
+                        <span>
+                            Total du rapport
+                        </span>
+
+                        <strong id="totalRapportGeneral">
+                            0,00 $
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 ÉTAPE 4 : PIÈCES JUSTIFICATIVES
+            ========================================== -->
+
+            <section
+                class="etape"
+                data-etape="4"
+                id="etape4"
+                style="display: none;"
+            >
+
+                <h2>Pièces justificatives</h2>
+
+
+                <div class="pieces-justificatives">
+
+
+                    <label
+                        for="piecesJustificatives"
+                        class="zone-televersement"
+                    >
+
+                        <div class="icone-televersement">
+                            📎
+                        </div>
+
+
+                        <div class="texte-televersement">
+
+                            <strong>
+                                Ajouter des fichiers
+                            </strong>
+
+                            <span>
+                                ou glissez-déposez vos fichiers ici
+                            </span>
+
+                        </div>
+
+
+                        <span class="bouton-fichiers">
+                            Choisir des fichiers
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="piecesJustificatives"
+                        name="piecesJustificatives"
+                        multiple
+                    >
+
+			<p class="details-televersement">
+			    Maximum : 10 fichiers · Fichiers acceptés : PDF, Word, Excel ou image · Taille maximale : 10 Mo
+			</p>
+
+
+                    <div
+                        class="entete-pieces-justificatives"
+                        id="entetePiecesJustificatives"
+                        style="display: none;"
+                    >
+
+                        <span>
+                            Documents ajoutés
+                        </span>
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div
+                        id="listePiecesJustificatives"
+                    ></div>
+
+		    <p
+			class="resume-fichiers"
+			id="resumeFichiers"
+		    ></p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 ÉTAPE 5 : VÉRIFICATION ET ENVOI
+            ========================================== -->
+
+            <section
+                class="etape"
+                data-etape="5"
+                id="etape5"
+                style="display: none;"
+            >
+
+                <h2>Vérification du rapport</h2>
+
+
+                <div class="verification-rapport">
+
+                    <h3>Identification et activité</h3>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Nom :
+                        </strong>
+
+                        <span id="verificationNom"></span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Courriel :
+                        </strong>
+
+                        <span id="verificationCourriel"></span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Adresse :
+                        </strong>
+
+                        <span id="verificationAdresse"></span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Motif de l'activité :
+                        </strong>
+
+                        <span id="verificationMotifActivite"></span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Date de l'activité :
+                        </strong>
+
+                        <span id="verificationDateActivite"></span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Départ :
+                        </strong>
+
+                        <span id="verificationHeureDepart"></span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Retour :
+                        </strong>
+
+                        <span id="verificationHeureRetour"></span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Pièces justificatives :
+                        </strong>
+
+                        <span id="verificationNombrePieces"></span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="verification-rapport">
+
+                    <h3>Total du rapport</h3>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Total kilométrage :
+                        </strong>
+
+                        <span id="verificationKilometrage">
+                            0,00 $
+                        </span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Total location :
+                        </strong>
+
+                        <span id="verificationLocation">
+                            0,00 $
+                        </span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Total transports publics :
+                        </strong>
+
+                        <span id="verificationTransportsPublics">
+                            0,00 $
+                        </span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Total repas :
+                        </strong>
+
+                        <span id="verificationRepas">
+                            0,00 $
+                        </span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Total autres dépenses :
+                        </strong>
+
+                        <span id="verificationAutresDepenses">
+                            0,00 $
+                        </span>
+
+                    </div>
+
+
+                    <div class="verification-ligne">
+
+                        <strong>
+                            Total général :
+                        </strong>
+
+                        <span id="verificationTotalGeneral">
+                            0,00 $
+                        </span>
+
+                    </div>
+
+                </div>
+
+		<div class="avis-documents-originaux">
+
+		    <h3>Important — Documents originaux</h3>
+
+		    <p>
+			Pour toute dépense accompagnée d’une facture
+                	ou d’un coupon de caisse, le document original
+               	 	doit également être transmis. Il peut être remis
+                	en personne, envoyé par courrier interne ou
+                	par la poste. Le fichier joint au présent
+                	formulaire ne remplace pas le document original.
+		    </p>
+
+		    <label class="confirmation-documents-originaux">
+
+			<input
+			    type="checkbox"
+			    id="confirmationDocumentsOriginaux"
+			>
+			    Je confirme avoir pris connaissance de cette
+                	    consigne concernant la transmission des
+                	    documents originaux.
+		    </label>
+
+		</div>
+
+
+                <!-- ACTIONS FINALES -->
+
+                <div class="boutons-actions">
+
+
+                    <span class="bouton-action-info">
+
+                        <button
+                            type="button"
+                            id="boutonGenererPDF"
+                        >
+                            💾 Enregistrer en PDF
+                        </button>
+
+                    </span>
+
+
+                    <span class="bouton-action-info">
+
+                        <button
+                            type="button"
+                            id="boutonEnvoyerCourriel"
+                        >
+                            ✉ Envoyer par courriel
+                        </button>
+
+                    </span>
+
+
+                    <span class="bouton-action-info">
+
+                        <button
+                            type="button"
+                            id="boutonImprimer"
+                        >
+                            🖨 Imprimer
+                        </button>
+
+                    </span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 NAVIGATION ENTRE LES ÉTAPES
+            ========================================== -->
+
+            <div class="bloc-navigation">
+
+
+                <div
+                    class="navigation-etapes"
+                    id="navigationEtapes"
+                >
+
+                    <button
+                        type="button"
+                        id="boutonRetour"
+                    >
+                        ← Précédent
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="boutonSuivant"
+                    >
+                        Suivant →
+                    </button>
+
+                </div>
+
+
+                <div class="zone-accueil">
+
+                    <button
+                        type="button"
+                        id="boutonAccueil"
+                    >
+                        Retour à l'accueil général
+                    </button>
+
+                </div>
+
+
+                <div class="zone-reinitialisation">
+
+                    <button
+                        type="button"
+                        id="boutonReinitialiser"
+                    >
+                        Réinitialiser le formulaire
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         MODALES
+    ========================================== -->
+
+
+    <!-- MODALE D'ERREUR -->
+
+    <div
+        id="fenetreErreur"
+        class="modale-overlay"
+    >
+
+        <div class="modale">
+
+
+            <div class="modale-icone">
+                !
+            </div>
+
+
+            <div class="modale-contenu">
+
+                <h2>Erreur !</h2>
+
+                <p id="messageErreur"></p>
+
+            </div>
+
+
+            <div class="modale-actions">
+
+                <button
+                    type="button"
+                    id="boutonFermerErreur"
+                    class="bouton-modale bouton-modale-secondaire"
+                >
+                    OK
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MODALE D'AVERTISSEMENT -->
+
+    <div
+        id="fenetreAvertissement"
+        class="modale-overlay"
+    >
+
+        <div class="modale">
+
+
+            <div class="modale-icone modale-icone-avertissement">
+                !
+            </div>
+
+
+            <div class="modale-contenu">
+
+                <h2>Avertissement !</h2>
+
+                <p id="messageAvertissement"></p>
+
+            </div>
+
+
+            <div class="modale-actions">
+
+                <button
+                    type="button"
+                    id="boutonRetourAvertissement"
+                    class="bouton-modale bouton-modale-secondaire"
+                >
+                    Corriger
+                </button>
+
+
+                <button
+                    type="button"
+                    id="boutonPoursuivreAvertissement"
+                    class="bouton-modale bouton-modale-avertissement"
+                >
+                    Poursuivre
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MODALE DE CONFIRMATION DE RÉINITIALISATION -->
+
+    <div
+        id="fenetreReinitialisation"
+        class="modale-overlay"
+    >
+
+        <div class="modale">
+
+
+            <div class="modale-icone modale-icone-avertissement">
+                !
+            </div>
+
+
+            <div class="modale-contenu">
+
+                <h2>Réinitialiser le formulaire ?</h2>
+
+                <p>
+                    Toutes les informations saisies dans le formulaire
+                    seront supprimées.
+                </p>
+
+            </div>
+
+
+            <div class="modale-actions">
+
+                <button
+                    type="button"
+                    id="boutonAnnulerReinitialisation"
+                    class="bouton-modale bouton-modale-secondaire"
+                >
+                    Annuler
+                </button>
+
+
+                <button
+                    type="button"
+                    id="boutonConfirmerReinitialisation"
+                    class="bouton-modale bouton-modale-avertissement"
+                >
+                    Réinitialiser
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MODALE DE SUCCÈS -->
+
+    <div
+        id="fenetreSucces"
+        class="modale-overlay"
+    >
+
+        <div class="modale">
+
+
+            <div class="modale-icone modale-icone-succes">
+                ✓
+            </div>
+
+
+            <div class="modale-contenu">
+
+                <h2>Succès !</h2>
+
+                <p>
+                    Le rapport a été envoyé par courriel avec succès.
+                </p>
+
+            </div>
+
+
+            <div class="modale-actions">
+
+                <button
+                    type="button"
+                    id="boutonFermerSucces"
+                    class="bouton-modale bouton-modale-principal"
+                >
+                    OK
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MODALE D'ORIENTATION -->
+
+    <div
+        id="fenetreOrientationFormulaire"
+        class="modale-overlay"
+    >
+
+        <div class="modale">
+
+
+            <div class="modale-icone modale-icone-orientation">
+                ↗
+            </div>
+
+
+            <div class="modale-contenu">
+
+                <h2>
+                    Ce formulaire ne semble pas correspondre
+                    à votre situation !
+                </h2>
+
+
+                <p>
+                    <br>Vous n'avez inscrit aucune dépense liée à un déplacement.<br><br>Si vous souhaitez réclamer une dépense qui n'est pas liée à un déplacement, le formulaire C pourrait mieux correspondre.
+                </p>
+
+            </div>
+
+
+            <div class="modale-actions">
+
+		<div class="modale-actions-gauche">
+
+		    <button
+		    	type="button"
+		    	id="boutonCorriger"
+		    	class="bouton-modale bouton-modale-secondaire"
+		    >
+		    	Corriger
+		    </button>
+
+                    <button
+                    	type="button"
+                    	id="boutonResterFormulaire"
+                    	class="bouton-modale bouton-modale-secondaire"
+                    >
+                    	Continuer
+                    </button>
+
+		</div>
+
+
+                <button
+                    type="button"
+                    id="boutonRetourAccueil"
+                    class="bouton-modale bouton-modale-orientation"
+                >
+                    Retourner à l'accueil
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="fenetreBrouillon" class="modale-overlay">
+	<div
+	    class="modale modale-brouillon"
+	    role="dialog"
+	    aria-modal="true"
+	    aria-labelledby="titreBrouillon"
+	>
+	    <div class="modale-icone modale-icone-orientation"
+		aria-hidden="true">↻</div>
+
+	    <div class="modale-contenu">
+		<h2 id="titreBrouillon">Un brouillon a été retrouvé</h2>
+
+		<p>
+                    Une demande précédente a été enregistrée sur cet ordinateur
+                    dans ce navigateur. Souhaitez-vous la reprendre ou commencer
+                    une nouvelle demande?
+		</p>
+	    </div>
+
+	    <div class="modale-actions actions-brouillon">
+		<button
+		    type="button"
+		    id="boutonNouvelleDemande"
+		    class="bouton-modale bouton-modale-secondaire"
+		>
+		    Nouvelle demande
+		</button>
+
+		<button
+		    type="button"
+		    id="boutonReprendreBrouillon"
+		    class="bouton-modale bouton-modale-principal"
+		>
+		    Reprendre
+		</button>
+	    </div>
+	</div>
+    </div>
+
+    <div id="fenetreNouvelleDemande" class="modale-overlay">
+	<div class="modale">
+	    <div class="modale-icone modale-icone-avertissement">!</div>
+
+	    <div class="modale-contenu">
+		<h2>Nouvelle demande</h2>
+		<p>
+		    Voulez-vous vraiment commencer une nouvelle demande? Le brouillon enregistré sera supprimé définitivement.
+		</p>
+	    </div>
+
+	    <div class="modale-actions">
+		<button
+		    type="button"
+		    id="boutonAnnulerNouvelleDemande"
+		    class="bouton-modale bouton-modale-secondaire"
+		>
+		    Annuler
+		</button>
+
+		<button
+	  	    type="button"
+		    id="boutonConfirmerNouvelleDemande"
+		    class="bouton-modale bouton-modale-avertissement"
+		>
+		    Nouvelle demande
+		</button>
+	    </div>
+	</div>
+    </div>
+		
+
+
+
+    <!-- =========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+    <script src="../parametres.js"></script>
+
+    <script src="js/distances.js"></script>
+
+    <script src="js/validation.js"></script>
+    <script src="js/calculs.js"></script>
+    <script src="js/pieces.js"></script>
+    <script src="js/pdf.js"></script>
+    <script src="js/modale.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="../autosauvegarde.js"></script>
+    <script src="../courriel.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rapports de dépenses</title>
+
+    <link rel="icon" type="image/png" href="logo.jpg">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+
+    <header class="entete">
+	<div class="conteneur">
+	    <p class="surtitre">FORMULAIRE PRINCIPAL</p>
+	<div class="titre-entete">
+	    <img
+		src="logo.png"
+		alt="Logo"
+		class="logo-entete"
+	    >
+	    <h1>Rapports de dépenses</h1>
+	</div>
+	    <p class="description-entete">
+		Choisissez le formulaire correspondant à votre situation pour préparer votre demande de remboursement.
+	    </p>
+	</div>
+    </header>
+
+    <main class="conteneur contenu-principal">
+
+	<!-- OUTIL D'ORIENTATION -->
+	<section class="section-orientation" id="orientation">
+
+	    <div class="titre-section">
+		<span class="numero-section">01</span>
+		<div>
+		    <h2>Quel formulaire devez-vous remplir?</h2>
+		    <p>
+			Répondez à quelques questions pour trouver le formulaire adapté à votre demande.
+		    </p>
+		</div>
+	    </div>
+
+	    <div class="assistant-orientation">
+	
+		<div 
+		    class="progression" 
+		    id="progression"
+		    role="progression"
+		    aria-label="Progression dans l'outil d'orientation"
+		    aria-valuemin="1"
+		    aria-valuemax="2"
+		    aria-valuenow="1">
+		    <span class="etape active"></span>
+		    <span class="etape"></span>
+		</div>
+
+		<div id="contenu-orientation" aria-live="polite">
+
+		    <p class="etiquette-question">QUESTION 1</p>
+
+		    <h3>
+			Votre demande concerne-t-elle des achats ou un déplacement lié au travail?
+		    </h3>
+
+		    <p class="aide-question">
+			Par exemple, des fournitures (incluant achats pour le fonds d'aide aux élèves dans le besoin), du matériel, les achats des délégués ou un déplacement professionnel?
+		    </p>
+
+		    <div class="choix-orientation">
+			<button
+			    type="button"
+			    class="bouton-choix"
+			    data-reponse="achats">
+
+			    <svg class="icone-svg" viewBox="0 0 24 24"
+				aria-hidden="true">
+				<path d="M5 8h14l1 12H4L5 8Z"/>
+    				<path d="M9 9V6a3 3 0 0 1 6 0v3"/>
+			    </svg>
+
+			    <span class="texte-choix">
+				<strong>Des achats</strong>
+			    	<small>
+				    J'ai acheté des articles pour le travail, sans déplacement à déclarer.
+				</small>
+			    </span>
+
+			    <span class="fleche" aria-hidden="true">›</span>
+			</button>
+
+			<button
+			    type="button"
+			    class="bouton-choix"
+			    data-reponse="deplacement">
+
+			    <svg class="icone-svg" viewBox="0 0 24 24"
+				aria-hidden="true">
+				<path d="M5 8h14l1 12H4L5 8Z"/>
+    				<path d="M9 9V6a3 3 0 0 1 6 0v3"/>
+			    </svg>
+
+			    <span class="texte-choix">
+				<strong>Un déplacement</strong>
+			    	<small>
+				    Je dois déclarer un déplacement à être remboursé par le SEHCN.
+				</small>
+			    </span>
+
+			    <span class="fleche" aria-hidden="true">›</span>
+			</button>
+		    </div>
+		</div>
+
+		<div id="resultat-orientation"
+		    class="resultat-orientation"
+		    aria-live="polite"
+		    hidden>
+		</div>
+
+		<div class="actions-orientation">
+		    <button type="button"
+			id="bouton-retour"
+			class="bouton-secondaire"
+			hidden
+		    >
+			← Retour
+		    </button>
+
+		    <button type="button"
+			id="bouton-recommencer"
+			class="bouton-secondaire"
+			hidden
+		    >
+			Recommencer
+		    </button>
+		</div>
+	    </div>
+	</section>
+
+	<!-- ACCÈS DIRECT AUX FORMULAIRES -->
+	<section class="section-formulaire" id="fourmulaires">
+
+	    <div class="titre-section">
+		<span class="numero-section">02</span>
+		<div>
+		    <h2>Accès direct aux formulaires</h2>
+		    <p>
+			Vous savez déjà quel formulaire utiliser? 
+			Sélectionnez-le directement!
+		    </p>
+		</div>
+	    </div>
+
+	    <div class="grille-formulaires">
+
+		<!-- FORMULAIRE A -->
+		<article class="carte-formulaire">
+
+		    <div class="entete-carte">
+			<span class="icone-carte icone-a" aria-hidden="true">
+			    <svg class="icone-svg" viewBox="0 0 24 24">
+				<rect x="3" y="5" width="18" height="16" rx="2"/>
+				<path d="M16 3v4M8 3v4M3 10h18"/>
+				<path d="m9 15 2 2 4-4"/>
+			    </svg>
+			</span>
+			<span class="badge-formulaire badge-a">
+			    FORMULAIRE A
+			</span>
+		    </div>
+
+		    <h3>Rapport de déplacements</h3>
+
+		    <p class="description-carte">
+			Pour un déplacement d'au moins deux jours comprenant un coucher.
+		    </p>
+
+		    <div class="exemples-carte">
+			<p>Ce formulaire peut inclure :</p>
+			<ul>
+			    <li>Les frais de transport</li>
+			    <li>Les repas</li>
+			    <li>Les dépenses diverses</li>
+			</ul>
+		    </div>
+
+		    <a class="bouton-formulaire bouton-a"
+			href="FormulaireA_Hébergements/index.html">
+			Accéder au formulaire
+			<span class="fleche-cercle" aria-hidden="true">
+			    <svg class="icone-svg" viewBox="0 0 24 24">
+				<path d="M5 12h14"/>
+				<path d="m13 6 6 6-6 6"/>
+			    </svg>
+			</span>
+		    </a>
+
+		</article>
+
+		<!-- FORMULAIRE B -->
+		<article class="carte-formulaire">
+
+		    <div class="entete-carte">
+			<span class="icone-carte icone-b" aria-hidden="true">
+			    <svg class="icone-svg" viewBox="0 0 24 24">
+				<path d="m5 11 2-5h10l2 5"/>
+				<path d="M3 11h18v8H3z"/>
+				<path d="M3 15h3m12 0h3M7 19v2m10-2v2"/>
+				<circle cx="7" cy="15" r="1"/>
+				<circle cx="17" cy="15" r="1"/>
+			    </svg>
+			</span>
+			<span class="badge-formulaire badge-b">
+			    FORMULAIRE B
+			</span>
+		    </div>
+
+		    <h3>Rapport de déplacements</h3>
+
+		    <p class="description-carte">
+			Pour un déplacement avec aller-retour dans la même journée, sans coucher.
+		    </p>
+
+		    <div class="exemples-carte">
+			<p>Ce formulaire peut inclure :</p>
+			<ul>
+			    <li>Les frais de transport</li>
+			    <li>Les repas</li>
+			    <li>Les dépenses diverses</li>
+			</ul>
+		    </div>
+
+		    <a class="bouton-formulaire bouton-b"
+			href="FormulaireB_AllerRetour/index.html">
+			Accéder au formulaire
+			<span class="fleche-cercle" aria-hidden="true">
+			    <svg class="icone-svg" viewBox="0 0 24 24">
+				<path d="M5 12h14"/>
+				<path d="m13 6 6 6-6 6"/>
+			    </svg>
+			</span>
+		    </a>
+
+		</article>
+
+		<!-- FORMULAIRE C -->
+		<article class="carte-formulaire">
+
+		    <div class="entete-carte">
+			<span class="icone-carte icone-c" aria-hidden="true">
+			    <svg class="icone-svg" viewBox="0 0 24 24">
+				<path d="M5 8h14l1 12H4L5 8Z"/>
+				<path d="M9 9V6a3 3 0 0 1 6 0v3"/>
+				<path d="M9 13h.01M15 13h.01"/>
+			    </svg>
+			</span>
+			<span class="badge-formulaire badge-c">
+			    FORMULAIRE C
+			</span>
+		    </div>
+
+		    <h3>Remboursement des achats</h3>
+
+		    <p class="description-carte">
+			Pour des achats effectués, sans déplacement à déclarer.
+		    </p>
+
+		    <div class="exemples-carte">
+			<p>Par exemple :</p>
+			<ul>
+			    <li>Fournitures de bureau</li>
+			    <li>Achats par les délégués</li>
+			    <li>Fonds d'aide aux élèves dans le besoin</li>
+			</ul>
+		    </div>
+
+		    <a class="bouton-formulaire bouton-c"
+			href="FormulaireC_Remboursement/index.html">
+			Accéder au formulaire
+			<span class="fleche-cercle" aria-hidden="true">
+			    <svg class="icone-svg" viewBox="0 0 24 24">
+				<path d="M5 12h14"/>
+				<path d="m13 6 6 6-6 6"/>
+			    </svg>
+			</span>
+		    </a>
+
+		</article>
+
+	    </div>
+	</section>
+
+	<!-- SECTION D'AIDE -->
+	<section class="section-aide" id="aide">
+
+	    <div class="icone-aide" aria-hidden="true">?</div>
+
+	    <div class="contenu-aide">
+		<h2>Besoin d'aide?</h2>
+		<p>
+		    Votre situation ne correspond pas aux critères présentés
+		    ou vous hésitez encore?
+		    <br>Vérifiez auprès de Marie au 
+		    <a href="mailto:info@sehcn.com">info@sehcn.com</a> ou au 418 589-9824, poste 0 avant de remplir
+		    votre demande.
+		</p>
+	    </div>
+	</section>
+
+    </main>
+
+    <footer class="pied-page">
+	<div class="conteneur">
+	    <p>© SEHCN 2026 – Rapports de dépenses </p>
+	</div>
+    </footer>
+
+</body>
+</html>
