@@ -27,38 +27,30 @@
 // ============================================================
 
 const donneesParametres = {
-
     "2026": {
-
-        tauxKilometrage: 0.68,
-
-        dejeuner: 22.05,
-
-        diner: 35.65,
-
-        souper: 46.00,
-
-        collation: 5.00,
-
-        proches: 40.00
+        "tauxKilometrage": 0.68,
+        "dejeuner": 22.05,
+        "diner": 35.65,
+        "souper": 46,
+        "collation": 5,
+        "proches": 40
     },
-
     "2027": {
-	
-	tauxKilometrage: 0.99,
-
-	dejeuner: 30.00,
-
-	diner: 50.00,
-
-	souper: 60.00,
-
-	collation: 10.00,
-
-	proches: 75.00
-
+        "tauxKilometrage": 0.99,
+        "dejeuner": 30,
+        "diner": 50,
+        "souper": 60,
+        "collation": 10,
+        "proches": 75
+    },
+    "2028": {
+        "tauxKilometrage": 0.75,
+        "dejeuner": 30,
+        "diner": 45,
+        "souper": 45,
+        "collation": 8,
+        "proches": 50
     }
-
 };
 
 
