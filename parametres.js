@@ -42,14 +42,6 @@ const donneesParametres = {
         "souper": 60,
         "collation": 10,
         "proches": 75
-    },
-    "2028": {
-        "tauxKilometrage": 0.75,
-        "dejeuner": 30,
-        "diner": 45,
-        "souper": 45,
-        "collation": 8,
-        "proches": 50
     }
 };
 
